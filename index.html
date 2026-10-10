@@ -40,13 +40,17 @@
           >
           <span>Theme: Quantum Unlocked · October 2026</span>
         </div>
-        <div class="authors"><span class="author"> by Luisa P</span></div>
+        <div class="authors">
+          <span class="author"
+            >by <a href="https://findingluisa.com">Luisa P</a></span
+          >
+        </div>
       </div>
 
       <div class="content">
         <h2 class="section-title">Abstract</h2>
         <p>
-          Monarch butterflies may sense Earth's magnetic field through a quantum
+          <!-- Monarch butterflies may sense Earth's magnetic field through a quantum
           effect in the protein cryptochrome: a pair of entangled electrons, the
           <i>radical pair</i>. We build the three-spin model of Aiello et al.
           (2026) on a quantum circuit, reproduce the paper's exact result, and
@@ -56,12 +60,12 @@
           triplet yield rises from <span class="highlight">0.50</span> at 0° to
           <span class="highlight">0.69</span> at 90°. The circuits run on
           Qollab's built-in simulator and on the IonQ Forte 1 noise model, where
-          noise lowers the values but the compass trend survives.
+          noise lowers the values but the compass trend survives. -->
         </p>
         <h2 class="section-title">1. Introduction</h2>
         <p>
           She is a symbol of summer, flowers and ephemeralness: meet the monarch
-          butterfly.
+          butterfly!
         </p>
         <p>
           Every year, monarch butterflies fly
@@ -309,21 +313,40 @@
 
         <h2 class="section-title">6. Results and Analysis</h2>
         <p>
-          Press Run on Qollab and <code>main()</code> walks through six steps.
-          Steps 1 to 5 are exact statevector calculations; step 6 sends one job
-          to a quantum backend.
+          <!-- Press Run on Qollab and <code>main()</code> walks through six steps.
+          Steps 1 to 5 are exact statevector calculations, used as the
+          reference. Step 6 sends one job to a quantum backend (Section 7). -->
         </p>
 
-        <h3 class="section-sub-title">6.1 Reproducing the paper</h3>
+        <h3 class="section-sub-title">
+          6.1 Reproducing the paper: isotropic coupling
+        </h3>
         <p>
-          With the isotropic coupling, the singlet turns into triplets and back
-          again: singlet-triplet <b>quantum beats</b>. The weak field slowly
-          shifts the triplets out of step, so each return is a little lower.
+          First, the paper's model as it is: isotropic coupling, field along
+          \(z\). The plot shows the probability that the pair is still a
+          singlet, \(P_S(t)\). It starts at 1, drops as the pair turns into a
+          triplet, then comes back again and again. These oscillations are
+          called singlet-triplet <span class="highlight">quantum beats</span>.
         </p>
-        <div class="plot" id="ch-iso"></div>
+        <figure class="figure">
+          <img
+            src="assets/paper-model.svg"
+            alt="Singlet probability over time, isotropic coupling"
+          />
+          <figcaption>
+            <b>Figure 1.</b> Probability that the pair is still a singlet over
+            time, with the paper's isotropic coupling. The oscillations are
+            singlet-triplet quantum beats.
+          </figcaption>
+        </figure>
+        <p>
+          The nucleus sets the rhythm of the beats. The Earth's field slowly
+          pulls the triplet states out of step, so each return is a little lower
+          than the one before. To check the simulation, I compared it with the
+          paper's exact formula (eq 18):
+        </p>
         <div class="note">
-          Checked against the paper's exact formula (eq 18): t = 36 →
-          <span class="highlight">0.306</span>, t = 37.5 →
+          t = 36 → <span class="highlight">0.306</span>, t = 37.5 →
           <span class="highlight">0.351</span>, t = 40 →
           <span class="highlight">0.268</span>. Simulation and paper agree to
           three decimals.
@@ -333,45 +356,142 @@
           6.2 Tilting the field: nothing changes
         </h3>
         <p>
-          Same model, but the field now points at an angle \(\theta\). With an
-          isotropic coupling the molecule has no preferred direction, so turning
-          the field is the same as turning everything. The curves for 0°, 30°,
-          60° and 90° lie exactly on top of each other.
+          Next, I tilt the Earth's field by an angle \(\theta\) (0°, 30°, 60°
+          and 90°), keeping the paper's isotropic coupling. The four curves lie
+          exactly on top of each other.
         </p>
-        <div class="note">
-          Largest difference between θ = 0° and θ = 90°:
-          <span class="highlight">about 10⁻¹⁵</span>, which is rounding error.
-          No compass.
-        </div>
-
-        <h3 class="section-sub-title">6.3 Giving the molecule an axis</h3>
         <p>
-          In real flavins, the electron couples to the N5 nucleus much more
-          strongly along one axis, perpendicular to the flavin ring. Keeping
-          only that axis gives the molecule a direction to compare with the
-          field. Now the curves split: the further the field tilts away from the
-          axis, the less singlet comes back.
+          This makes sense: with an isotropic coupling, nothing in the molecule
+          points in a particular direction. The singlet has total spin zero, so
+          it looks the same from every direction, and the nucleus starts
+          randomly up or down. Turning the field is then the same as turning the
+          whole molecule, and nothing changes.
         </p>
-        <div class="plot" id="ch-aniso"></div>
-        <div class="legend" id="lg-aniso"></div>
+        <figure class="figure">
+          <img
+            src="assets/isotropic.png"
+            alt="Singlet probability at four field angles, isotropic coupling"
+          />
+          <figcaption>
+            <b>Figure 2.</b> Isotropic coupling with the field tilted by 0°,
+            30°, 60° and 90°. The four curves lie exactly on top of each other.
+          </figcaption>
+        </figure>
+
+        <h3 class="section-sub-title">6.3 Anisotropic Coupling</h3>
+        <p>
+          In real flavins, the electron couples to the nucleus much more
+          strongly along one axis, perpendicular to the flavin ring. Keeping an
+          anisotriopic coupling gives the molecule a direction it can compare
+          with the field.
+        </p>
+        <p>
+          Now the curves split. When the field is along the axis (0°), the
+          singlet comes back completely, at \(t = 4\pi\). As the field tilts
+          away, part of it pushes sideways on the spins and opens new paths from
+          the singlet to the triplets. The beats get messier, and less singlet
+          comes back.
+        </p>
         <div class="note">
           P(singlet) at t = 4π: 0° → <span class="highlight">1.000</span>, 30° →
           <span class="highlight">0.906</span>, 60° →
           <span class="highlight">0.739</span>, 90° →
           <span class="highlight">0.664</span>
         </div>
+        <figure class="figure">
+          <img
+            src="assets/anisotropic.png"
+            alt="Singlet probability at four field angles, anisotropic coupling"
+          />
+          <figcaption>
+            <b>Figure 3.</b> Anisotropic coupling with the field tilted by 0°,
+            30°, 60° and 90°. The further the field tilts from the coupling
+            axis, the less singlet comes back.
+          </figcaption>
+        </figure>
 
         <h3 class="section-sub-title">6.4 The signal at each angle</h3>
         <p>
-          We assume the flavin axis points along the butterfly's body, so
-          \(\theta\) is the angle between her body and Earth's field line.
+          A real pair doesn't live forever: each one ends after a short random
+          time, at rate \(k\). The triplet yield (eq 5) averages over all those
+          endings and gives the share of pairs that end as a triplet, the ones
+          that can signal.
         </p>
-        <div class="plot" id="ch-yield"></div>
+        <p>
+          I assume the flavin's coupling axis points along the butterfly's body,
+          so \(\theta\) is the angle between her body and the Earth's field
+          line.
+        </p>
+        <figure class="figure">
+          <img
+            src="assets/triplet-yield.png"
+            alt="Triplet yield versus angle"
+          />
+          <figcaption>
+            <b>Figure 4.</b> Triplet yield (the signal) against the angle
+            between the butterfly's body and the Earth's field line.
+          </figcaption>
+        </figure>
         <div class="note">
           Triplet yield rises from <span class="highlight">0.495</span> at 0° to
           <span class="highlight">0.687</span> at 90°, about 39% stronger. It
           changes fastest near 40°.
         </div>
+        <p>
+          So the signal depends on which way she is facing relative to the field
+          line. Near 40°, a small turn gives the biggest change in signal, which
+          is where the compass would be most sensitive.
+        </p>
+
+        <!-- <h3 class="section-sub-title">6.5 Field strength and pair lifetime</h3>
+        <p>
+          The results above use toy values: field strength \(\omega/a = 0.1\)
+          and decay rate \(k = 0.05\). The Earth's field is weaker, closer to
+          \(\omega/a \approx 0.03\). The table shows how much stronger the
+          signal is at 90° than at 0°, for different field strengths and pair
+          lifetimes:
+        </p>
+        <div class="table-container">
+          <table class="parameter-table">
+            <thead>
+              <tr>
+                <th>\(\omega/a\)</th>
+                <th>long-lived pair (\(k = 0.01\))</th>
+                <th>toy model (\(k = 0.05\))</th>
+                <th>short-lived pair (\(k = 0.2\))</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0.03 (Earth)</td>
+                <td>45%</td>
+                <td>13%</td>
+                <td>1%</td>
+              </tr>
+              <tr>
+                <td>0.1</td>
+                <td>48%</td>
+                <td><span class="highlight">39%</span></td>
+                <td>10%</td>
+              </tr>
+              <tr>
+                <td>0.3</td>
+                <td>37%</td>
+                <td>35%</td>
+                <td>19%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note">
+          A weak field needs time to act. With an Earth-strength field, the
+          compass almost disappears if the pair dies quickly (1%), but comes
+          back strongly if the pair lives long enough (45%). Roughly, the pair
+          has to live longer than \(1/\omega\), the time the field takes to turn
+          a spin.
+
+
+        </div> -->
 
         <h2 class="section-title">7. Running on IonQ</h2>
         <p>
@@ -381,8 +501,7 @@
           50/50 up or down. All measurements come after a barrier at the end,
           1000 shots, measuring only the electrons.
         </p>
-        <div class="plot" id="ch-q1"></div>
-        <div class="plot" id="ch-q2"></div>
+
         <div class="legend">
           <span><i class="sw fg"></i>exact</span>
           <span
@@ -406,50 +525,29 @@
           This is a toy model, so it is important to be clear about what it can
           and cannot tell us.
         </p>
-
-        <h3 class="section-sub-title">What is known</h3>
         <p>
-          The maths of the model: the simulation matches the paper's exact
-          formula to three decimals. It is also well established that real
-          flavin couplings are strongly anisotropic, which is what makes the
-          compass possible in this model.
+          <b>Known:</b> the simulation matches the paper's exact formula to
+          three decimals, and real flavin couplings are known to be strongly
+          anisotropic.
         </p>
-
-        <h3 class="section-sub-title">What is assumed</h3>
-        <ul>
-          <li>
-            Only one nucleus. Real flavins have many nuclei coupled to the
-            electrons.
-          </li>
-          <li>No decoherence and no interaction between the two electrons.</li>
-          <li>
-            Toy values for the field strength (\(\omega/a = 0.1\)) and the pair
-            lifetime (\(20/a\)). The Earth's field is closer to \(\omega/a
-            \approx 0.03\), and real pairs live longer.
-          </li>
-          <li>
-            The flavin's coupling axis points along the butterfly's body, so
-            \(\theta\) is the angle between her body and the Earth's field line.
-          </li>
-        </ul>
-
-        <h3 class="section-sub-title">What is unknown</h3>
         <p>
-          How cryptochromes are oriented inside the monarch's eyes and antennae,
-          and whether monarchs use this mechanism at all. The radical pair is a
-          leading hypothesis, not a proven fact. Realistic models with more
-          interactions also predict a smaller direction effect than this toy
-          model, from a few percent to about 25%.
+          <b>Assumed:</b> one nucleus, no decoherence, no interaction between
+          the electrons, and toy values for the field strength and pair
+          lifetime. The flavin's coupling axis is assumed to point along the
+          butterfly's body.
         </p>
-
-        <h3 class="section-sub-title">Noise on IonQ</h3>
         <p>
-          On the Forte 1 noise model, gate errors lower the measured values,
-          more for longer circuits. With 1000 shots, each point also has a
-          statistical error of about ±0.015. Three qubits are easy to simulate
-          on a laptop, so the exact result is used as the reference, and no
-          quantum speed-up is claimed. Each extra nucleus doubles the size of
-          the problem, which is where quantum hardware becomes useful.
+          <b>Unknown:</b> how cryptochromes are oriented in the monarch's eyes
+          and antennae, and whether monarchs use this mechanism at all.
+          Realistic models predict a smaller direction effect, from a few
+          percent to about 25%.
+        </p>
+        <p>
+          <b>Noise:</b> on IonQ Forte 1, gate errors lower the values, more for
+          longer circuits, and 1000 shots add an error of about ±0.015. Three
+          qubits are easy to simulate classically, so no quantum speed-up is
+          claimed. Each extra nucleus doubles the problem size, which is where
+          quantum hardware becomes useful.
         </p>
 
         <h2 class="section-title">9. Next Steps</h2>
@@ -479,12 +577,7 @@
               <b>Direction needs anisotropy.</b> With the paper's isotropic
               coupling, the field's direction changes nothing.
             </li>
-            <li>
-              <i>Peter Hore on Radical Pair</i>, [speaker or channel], YouTube,
-              <a href="https://www.youtube.com/watch?v=FytxLiHlah4"
-                >youtube.com/watch?v=FytxLiHlah4</a
-              >
-            </li>
+
             <li>
               <b>The signal depends on the angle.</b> With an axial coupling,
               the triplet yield rises from 0.50 at 0° to 0.69 at 90°.
@@ -497,9 +590,13 @@
         </div>
         <div class="note">
           <span class="callout-title">Pledge 🦋</span>I pledge 10% of any
-          monetary winnings from this hackathon to Come Home, Butterfly, a
-          community effort I founded to restore monarch and pollinator habitat
-          through art in Tecumseh, Ontario.
+          monetary winnings from this hackathon to
+          <span class="highlight">
+            <a href="https://www.come-home-butterfly.ca/" class="no-underline"
+              >come home, butterfly</a
+            ></span
+          >, a community effort I founded to restore monarch and pollinator
+          habitat through art in Tecumseh, Ontario.
         </div>
 
         <h2 class="section-title">References</h2>
@@ -510,6 +607,12 @@
               >A physicist-friendly primer on the Hamiltonian for quantum
               sensing in proteins</i
             >, <a href="https://arxiv.org/abs/2604.18608">arXiv:2604.18608</a>
+          </li>
+          <li>
+            <i>Peter Hore on Radical Pair</i>, YouTube,
+            <a href="https://www.youtube.com/watch?v=FytxLiHlah4"
+              >youtube.com/watch?v=FytxLiHlah4</a
+            >
           </li>
           <li>
             Guerra, Gegear and Reppert (2014),
@@ -531,9 +634,7 @@
         </ul>
         <p style="font-size: 0.95rem; color: var(--color-text-muted)">
           Paintings are my own. Thanks to my mentor Andrew Projansky for
-          feedback on the anisotropic coupling. AI assistance (Claude) was used
-          for explanations, code review and debugging. This effort is supported
-          by Qollab and IonQ. Code released under the MIT license.
+          feedback on the anisotropic coupling.
         </p>
       </div>
 

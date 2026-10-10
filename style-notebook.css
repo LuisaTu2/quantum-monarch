@@ -98,6 +98,12 @@ a:hover {
   font-weight: 600;
   /* color: var(--orange-deep); */
 }
+.author a {
+  color: inherit;
+  font-weight: inherit;
+  border-bottom: none;
+  text-decoration: none;
+}
 .date-author {
   display: flex;
   flex-direction: column;
@@ -420,4 +426,36 @@ li::marker {
   font-family: var(--font-type);
   font-size: 0.85rem;
   color: var(--muted);
+}
+
+/* plots from the code output */
+.figure {
+  margin: 28px 0 36px;
+}
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.figure figcaption {
+  margin: 12px 8% 0;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.figure figcaption b {
+  color: var(--orange-deep);
+  font-weight: 600;
+  margin-right: 4px;
+}
+@media (max-width: 600px) {
+  .figure figcaption {
+    margin: 10px 0 0;
+  }
+}
+
+.no-underline {
+  border-bottom: none;
+  text-decoration: none;
 }
