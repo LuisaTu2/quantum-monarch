@@ -1,0 +1,422 @@
+/* ==========================================================================
+   A Butterfly's Quantum Compass: field-notebook version
+   Same HTML classes as style.css, so it's a drop-in swap.
+   Idea: black = the wing's veins (structure), white = the spots (boxes),
+   orange = only what matters (results), paintings pinned like specimens.
+   ========================================================================== */
+
+:root {
+  /* Monarch palette */
+  --paper: #faf6ee; /* cream page */
+  --spot: #ffffff; /* white spots: boxes, mats */
+  --vein: #1d1612; /* black veins: headings, rules */
+  --text: #2c2622;
+  --muted: #776c62;
+  --line: #e6dccd;
+  --orange: #e8731c; /* wing orange: results only */
+  --orange-deep: #b4500f;
+  --gold: #e3a21a;
+  --milkweed: #4f7a45;
+  --wash: #f3ece1; /* slightly darker paper for code */
+
+  /* Type */
+  --font-display:
+    "Fraunces", Georgia, "Times New Roman", serif; /* title + section titles */
+  --font-body: "Inter", system-ui, sans-serif; /* reading text */
+  --font-type:
+    "IBM Plex Mono", ui-monospace, monospace; /* typed labels, captions */
+  --font-code: "IBM Plex Mono", ui-monospace, monospace;
+  --line-height: 1.75;
+}
+
+/* ---------- Page ---------- */
+html,
+body {
+  margin: 0;
+}
+body {
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: var(--line-height);
+}
+.root {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-inline: 20px;
+  padding-block: 40px 0;
+}
+p {
+  margin: 0 0 1em;
+}
+a {
+  color: var(--orange-deep);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+a:hover {
+  color: var(--vein);
+}
+
+/* ---------- Header: a typed notebook cover ---------- */
+.header {
+  text-align: center;
+  padding-bottom: 32px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid var(--vein);
+}
+.header-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-optical-sizing: auto;
+  font-size: clamp(2.3rem, 7vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--vein);
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+.header-sub-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--muted);
+  margin: 0 0 18px;
+  text-wrap: balance;
+}
+.authors {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+.author {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--orange-deep);
+}
+.date-author {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-type);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Sections: black like veins, orange saved for results ---------- */
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--vein);
+  line-height: 1.3;
+  margin: 56px 0 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--vein);
+  text-wrap: balance;
+}
+.section-sub-title {
+  font-family: var(--font-type);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--orange-deep);
+  margin: 32px 0 8px;
+}
+.highlight-value {
+  color: var(--orange-deep);
+  font-weight: 700;
+}
+
+/* ---------- Boxes: white spots with a vein on the left ---------- */
+.note,
+.quote,
+.warning,
+.conclusions {
+  background: var(--spot);
+  border: 1px solid var(--line);
+  border-left: 5px solid;
+  padding: 18px 22px;
+  margin: 24px 0;
+  border-radius: 2px;
+}
+.note {
+  border-left-color: var(--orange);
+} /* results */
+.quote {
+  border-left-color: var(--vein);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.5;
+} /* the question */
+.warning {
+  border-left-color: var(--gold);
+} /* caveats */
+.conclusions {
+  border-left-color: var(--milkweed);
+} /* milkweed */
+.note > :last-child,
+.quote > :last-child,
+.warning > :last-child,
+.conclusions > :last-child {
+  margin-bottom: 0;
+}
+.callout-title {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* ---------- Paintings: pinned specimens ---------- */
+.schematics {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--spot);
+  padding: 12px;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 24px -14px rgba(60, 30, 10, 0.45);
+  transform: rotate(-0.5deg);
+  margin-top: 20px;
+}
+.schematics.portrait {
+  width: min(100%, 420px);
+  margin-inline: auto;
+  transform: rotate(0.7deg);
+}
+.img-comment-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 14px 0 32px;
+  font-family: var(--font-type);
+}
+.img-comment-title {
+  font-weight: 600;
+  color: var(--vein);
+  font-size: 0.95rem;
+}
+.img-comment-text {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- Equations ---------- */
+.equation {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 18px 0;
+  color: var(--vein);
+}
+mjx-container[display="true"] {
+  margin: 0.6em 0 !important;
+}
+
+/* ---------- Code: a typed card ---------- */
+.code-container {
+  background: var(--wash);
+  border-left: 3px solid var(--vein);
+  padding: 14px 18px;
+  margin: 20px 0;
+  overflow-x: auto;
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+}
+pre {
+  margin: 0;
+}
+code {
+  font-family: var(--font-code);
+  white-space: pre;
+  line-height: 1.6;
+  color: var(--vein);
+}
+p code {
+  font-size: 0.88em;
+  background: var(--wash);
+  padding: 1px 5px;
+}
+.keyword {
+  color: var(--orange-deep);
+  font-weight: 600;
+}
+.function {
+  color: var(--milkweed);
+  font-weight: 600;
+}
+.number {
+  color: #8a5a00;
+}
+.comment {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ---------- Tables: like a lab notebook (rules, no shadows) ---------- */
+.table-container {
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+.parameter-table {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+  font-variant-numeric: tabular-nums;
+  border-top: 2px solid var(--vein);
+  border-bottom: 2px solid var(--vein);
+}
+.parameter-table th,
+.parameter-table td {
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+}
+.parameter-table th {
+  font-family: var(--font-type);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vein);
+  border-bottom: 1px solid var(--vein);
+}
+.parameter-table td {
+  border-bottom: 1px solid var(--line);
+}
+.parameter-table td:first-child {
+  white-space: nowrap;
+}
+.parameter-table tbody tr:hover {
+  background: var(--spot);
+}
+
+/* ---------- Lists ---------- */
+ul {
+  margin: 0 0 1em;
+  padding-left: 1.3em;
+}
+li {
+  margin: 0 0 0.35em;
+}
+li::marker {
+  color: var(--orange);
+}
+
+/* ---------- Charts (drawn by charts.js) ---------- */
+.plot {
+  width: 100%;
+  overflow-x: auto;
+  margin: 14px 0 4px;
+  background: var(--spot);
+  border: 1px solid var(--line);
+  padding: 10px 6px 4px;
+  box-sizing: border-box;
+}
+.plot svg {
+  display: block;
+  width: 100%;
+  min-width: 480px;
+  height: auto;
+}
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 8px 0 16px;
+}
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.sw {
+  width: 18px;
+  height: 3px;
+  display: inline-block;
+}
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.axis {
+  stroke: var(--line);
+}
+.tick {
+  fill: var(--muted);
+  font-family: var(--font-code);
+  font-size: 11px;
+}
+.alabel {
+  fill: var(--muted);
+  font-family: var(--font-body);
+  font-size: 12px;
+}
+.c0 {
+  stroke: var(--gold);
+}
+.c1 {
+  stroke: var(--orange);
+}
+.c2 {
+  stroke: var(--orange-deep);
+}
+.c3 {
+  stroke: var(--vein);
+}
+.cg {
+  stroke: #b9aea3;
+}
+.f0 {
+  background: var(--gold);
+}
+.f1 {
+  background: var(--orange);
+}
+.f2 {
+  background: var(--orange-deep);
+}
+.f3 {
+  background: var(--vein);
+}
+.fg {
+  background: #b9aea3;
+}
+.pt-ideal {
+  fill: var(--vein);
+  stroke: var(--vein);
+}
+.pt-forte {
+  fill: var(--spot);
+  stroke: var(--orange);
+  stroke-width: 2;
+}
+.ebar-ideal {
+  stroke: var(--vein);
+}
+.ebar-forte {
+  stroke: var(--orange);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  margin: 72px 0 80px;
+  padding-top: 14px;
+  border-top: 2px solid var(--vein);
+  text-align: right;
+  font-family: var(--font-type);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
