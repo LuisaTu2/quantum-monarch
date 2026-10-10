@@ -298,14 +298,7 @@
             singlet. Repeating this many times gives \(P_S(t)\).
           </li>
         </ol>
-        <p>Step 1 in code:</p>
-        <div class="code-container">
-          <pre><code><span class="keyword">def</span> <span class="function">create_singlet</span>(qc, e1=<span class="number">0</span>, e2=<span class="number">1</span>):
-    qc.x(e1)        <span class="comment"># |1&gt;</span>
-    qc.h(e1)        <span class="comment"># (|0&gt; - |1&gt;)/√2</span>
-    qc.cx(e1, e2)   <span class="comment"># (|00&gt; - |11&gt;)/√2</span>
-    qc.x(e2)        <span class="comment"># (|01&gt; - |10&gt;)/√2 = singlet</span></code></pre>
-        </div>
+
         <p>
           The Hamiltonian is written as a sum of Pauli strings with
           <code>SparsePauliOp</code> and turned into gates with
@@ -409,48 +402,55 @@
         </p>
 
         <h2 class="section-title">8. Sources of Errors and Assumptions</h2>
-        <div class="table-container">
-          <table class="parameter-table">
-            <thead>
-              <tr>
-                <th>Status</th>
-                <th>What</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>✅ Solid</td>
-                <td>
-                  The model's maths, checked against the paper's exact formula.
-                  Real flavin couplings are strongly anisotropic.
-                </td>
-              </tr>
-              <tr>
-                <td>⚠️ Assumed</td>
-                <td>
-                  One nucleus, no decoherence, no electron–electron coupling.
-                  Toy values ω/a = 0.1 and lifetime 20/a. The flavin axis points
-                  along the butterfly's body.
-                </td>
-              </tr>
-              <tr>
-                <td>❓ Unknown</td>
-                <td>
-                  How cryptochromes are oriented in monarch tissue, and whether
-                  monarchs use this mechanism at all.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="warning">
-          Realistic models with more interactions predict a smaller direction
-          effect (a few percent to about 25%). Three qubits are easy to simulate
-          classically: the exact result is the reference the quantum run is
-          checked against, and no speed-up is claimed. Each extra nucleus
-          doubles the state size, which is where quantum hardware becomes
-          useful.
-        </div>
+        <p>
+          This is a toy model, so it is important to be clear about what it can
+          and cannot tell us.
+        </p>
+
+        <h3 class="section-sub-title">What is known</h3>
+        <p>
+          The maths of the model: the simulation matches the paper's exact
+          formula to three decimals. It is also well established that real
+          flavin couplings are strongly anisotropic, which is what makes the
+          compass possible in this model.
+        </p>
+
+        <h3 class="section-sub-title">What is assumed</h3>
+        <ul>
+          <li>
+            Only one nucleus. Real flavins have many nuclei coupled to the
+            electrons.
+          </li>
+          <li>No decoherence and no interaction between the two electrons.</li>
+          <li>
+            Toy values for the field strength (\(\omega/a = 0.1\)) and the pair
+            lifetime (\(20/a\)). The Earth's field is closer to \(\omega/a
+            \approx 0.03\), and real pairs live longer.
+          </li>
+          <li>
+            The flavin's coupling axis points along the butterfly's body, so
+            \(\theta\) is the angle between her body and the Earth's field line.
+          </li>
+        </ul>
+
+        <h3 class="section-sub-title">What is unknown</h3>
+        <p>
+          How cryptochromes are oriented inside the monarch's eyes and antennae,
+          and whether monarchs use this mechanism at all. The radical pair is a
+          leading hypothesis, not a proven fact. Realistic models with more
+          interactions also predict a smaller direction effect than this toy
+          model, from a few percent to about 25%.
+        </p>
+
+        <h3 class="section-sub-title">Noise on IonQ</h3>
+        <p>
+          On the Forte 1 noise model, gate errors lower the measured values,
+          more for longer circuits. With 1000 shots, each point also has a
+          statistical error of about ±0.015. Three qubits are easy to simulate
+          on a laptop, so the exact result is used as the reference, and no
+          quantum speed-up is claimed. Each extra nucleus doubles the size of
+          the problem, which is where quantum hardware becomes useful.
+        </p>
 
         <h2 class="section-title">9. Next Steps</h2>
         <ul>
@@ -478,6 +478,12 @@
             <li>
               <b>Direction needs anisotropy.</b> With the paper's isotropic
               coupling, the field's direction changes nothing.
+            </li>
+            <li>
+              <i>Peter Hore on Radical Pair</i>, [speaker or channel], YouTube,
+              <a href="https://www.youtube.com/watch?v=FytxLiHlah4"
+                >youtube.com/watch?v=FytxLiHlah4</a
+              >
             </li>
             <li>
               <b>The signal depends on the angle.</b> With an axial coupling,
