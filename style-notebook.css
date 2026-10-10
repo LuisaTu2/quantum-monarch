@@ -15,6 +15,7 @@
   --line: #e6dccd;
   --orange: #e8731c; /* wing orange: results only */
   --orange-deep: #b4500f;
+  --color-highlight: #a52a99; /* wing orange */
   --gold: #e3a21a;
   --milkweed: #4f7a45;
   --wash: #f3ece1; /* slightly darker paper for code */
@@ -128,9 +129,9 @@ a:hover {
   color: var(--orange-deep);
   margin: 32px 0 8px;
 }
-.highlight-value {
-  color: var(--orange-deep);
-  font-weight: 700;
+.highlight {
+  color: var(--color-highlight);
+  font-weight: 650;
 }
 
 /* ---------- Boxes: white spots with a vein on the left ---------- */

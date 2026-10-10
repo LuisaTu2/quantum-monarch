@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Quantum & Butterflies</title>
+    <title>quantum & butterflies</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -50,102 +50,153 @@
           effect in the protein cryptochrome: a pair of entangled electrons, the
           <i>radical pair</i>. We build the three-spin model of Aiello et al.
           (2026) on a quantum circuit, reproduce the paper's exact result, and
-          then ask what turns it into a
-          <span class="highlight-value">compass</span>. With the paper's
-          isotropic hyperfine coupling, the direction of the field changes
-          nothing. With an axial coupling, as in real flavins, the triplet yield
-          rises from <span class="highlight-value">0.50</span> at 0° to
-          <span class="highlight-value">0.69</span> at 90°. The circuits run on
+          then ask what turns it into a <span class="highlight">compass</span>.
+          With the paper's isotropic hyperfine coupling, the direction of the
+          field changes nothing. With an axial coupling, as in real flavins, the
+          triplet yield rises from <span class="highlight">0.50</span> at 0° to
+          <span class="highlight">0.69</span> at 90°. The circuits run on
           Qollab's built-in simulator and on the IonQ Forte 1 noise model, where
           noise lowers the values but the compass trend survives.
         </p>
-
         <h2 class="section-title">1. Introduction</h2>
         <p>
           She is a symbol of summer, flowers and ephemeralness: meet the monarch
-          butterfly. 🦋
+          butterfly.
         </p>
         <p>
-          Every year, monarch butterflies fly thousands of kilometers across
-          North and Central America. Starting from the central region of
-          Michocan in early spring, over the course of a few weeks and a couple
-          of generations, they make their way all the way up to northern regions
-          in Canada.
-
-          <br />
-          Then at the beginning of fall a "super generation" migrates all the
-          way from Northen America back to the warmer central regions of Mexico.
-
-          <br />
-          But how does the butterfly know in which direction she is supposed to
-          fly?
-
-          <br />
-          In this project, we explore the quantum compass that is thought to
-          guide monarch butterflies on their incredible migratory journey.
-          Special proteins called cryptochromes that exist on the retina and
-          antennaes of the monarchs, are very sensitive to blue light.
-          Interacting with blue light creates a pair of entangled electrons,
-          called radical pair. It is thoght that the interaction of the radical
-          pair (and nucleus coupling) with the Earth's magnetic field influence
-          how the butterfly orients itself, effectively creating an "inner
-          clock" or "quantum compass.
+          Every year, monarch butterflies fly
+          <span class="highlight">thousands of kilometres</span> across North
+          America. Starting from the mountain forests of Michoacán in central
+          Mexico in early spring, over a few months and three to four
+          generations, they make their way all the way up to southern Canada.
         </p>
-
+        <p>
+          Then, at the end of summer, a
+          <span class="highlight">super generation</span> migrates all the way
+          back to the same mountain forests in central Mexico. But
+          <span class="highlight">how does the butterfly know</span> in which
+          direction she is supposed to fly?
+        </p>
+        <p>
+          In this project, we explore the
+          <span class="highlight">quantum compass</span> that is thought to help
+          guide monarch butterflies on their incredible migratory journey.
+          Special proteins called <span class="highlight">cryptochromes</span>,
+          found in the eyes and antennae of monarchs, are very sensitive to blue
+          light. Absorbing blue light creates a pair of entangled electrons,
+          called a <span class="highlight">radical pair</span>. It is thought
+          that the interaction of the radical pair (and its coupling to a
+          nucleus) with the
+          <span class="highlight">Earth's magnetic field</span> influences how
+          the butterfly orients herself, effectively creating a quantum compass.
+        </p>
         <img
           class="schematics portrait"
           src="images/monarch-on-lavender.jpg"
           alt="Acrylic painting of a monarch butterfly above lavender"
         />
         <div class="img-comment-section">
-          <span class="img-comment-title">Monarch on lavender</span>
-          <span class="img-comment-text"
-            >Acrylic on wood, 2026. Painted before the hackathon.</span
-          >
+          <span class="img-comment-title">Monarch on Lavender</span>
+          <span class="img-comment-text">Acrylic, 2026</span>
         </div>
 
         <h2 class="section-title">2. The Radical Pair</h2>
         <p>
-          Blue light hits a <b>flavin</b> molecule inside the protein
-          <b>cryptochrome</b>. An electron hops along a chain of
-          <b>tryptophans</b>, leaving two unpaired electrons about 1.5 to 2 nm
-          apart. They are born entangled, as a <b>singlet</b>. The flavin's
-          nitrogen nucleus (N5) then makes the pair oscillate between singlet
-          and <b>triplet</b>. If the pair ends as a triplet, the protein can
-          signal. Earth's field changes how often that happens.
+          Cryptochromes are the proteins that are sensitive to light, and they
+          sit in the butterfly's eyes and antennae. When
+          <span class="highlight">blue light</span> hits the
+          <span class="highlight">flavin</span> molecule inside the
+          cryptochrome, an electron gets excited and jumps up a level. This
+          leaves the electron unpaired, and an empty seat in the orbital it used
+          to occupy.
         </p>
+        <p>
+          The next-door neighbours, a chain of amino acids called
+          <span class="highlight">tryptophans</span>, now want to fill that
+          empty seat. A chain reaction takes place, with each electron filling
+          its neighbour's empty slot. However, at the far end of the chain, we
+          are also left with an unpaired electron.
+        </p>
+        <p>
+          These two unpaired electrons are what form the
+          <span class="highlight">radical pair</span>! They are
+          <span class="highlight">entangled</span>, and they start off in a
+          <span class="highlight">singlet</span> state, meaning that their spins
+          point in opposite directions, but neither one has a definite direction
+          on its own. Spin is a property of quantum particles like electrons: it
+          makes them behave like tiny magnets that can point up or down. In the
+          singlet, the pair is in a superposition of "up-down" and "down-up",
+          and their total spin is zero.
+        </p>
+        <p>
+          And this is where the fun things happen. Both electrons feel the
+          <span class="highlight">Earth's magnetic field</span>, and the flavin
+          electron also feels the magnetic pull of its
+          <span class="highlight">nucleus</span>. This unbalanced influence
+          makes the two spins turn at different speeds, making the pair
+          <span class="highlight">oscillate</span> between the singlet and a
+          <span class="highlight">triplet</span> state.
+        </p>
+        <p>
+          The radical pair of electrons is unstable and only lives for about a
+          microsecond. Since its state is constantly oscillating between a
+          singlet and a triplet state, the final state is probabilistic.
+        </p>
+        <ul>
+          <li>
+            If it ends as a singlet, the extra electron on the flavin can jump
+            back to the tryptophan and fill its empty seat, effectively undoing
+            the chain reaction.
+          </li>
+          <li>
+            If it ends as a triplet instead, it forms a chemical
+            <span class="highlight">product</span>, which is thought to affect
+            how the butterfly perceives the world.
+          </li>
+        </ul>
+
         <img
           class="schematics"
-          src="images/radical-pair.jpg"
+          src="assets/radical_pair_formation.png"
           alt="Watercolour diagram: blue light enters the flavin inside cryptochrome; an electron hops along three tryptophans, leaving an entangled radical pair"
         />
         <div class="img-comment-section">
           <span class="img-comment-title"
             >Blue light makes an entangled radical pair</span
           >
-          <span class="img-comment-text"
-            >Watercolour, painted during the hackathon.</span
-          >
+          <span class="img-comment-text">Watercolour & acrylic</span>
         </div>
-
+        <div class="quote">
+          We have seen how blue light that hits a cryptochrome creates a radical
+          pair of electrons. The influence of both the Earth's magnetic field
+          and the nucleus is what makes the pair oscillate between singlet and
+          triplet. If the pair ends up in a triplet, it is thought that a signal
+          is sent to the butterfly. We will later see that the angle between the
+          electron-nucleus coupling axis and the direction of the Earth's
+          magnetic field directly affects how strong that signal is.
+        </div>
         <h2 class="section-title">3. Problem Statement</h2>
         <p>
-          The paper's model uses an <b>isotropic</b> hyperfine coupling: the
-          nucleus pulls on the electron equally in every direction. A compass,
-          though, has to respond to the <i>direction</i> of the field, not just
-          its strength. So:
+          In this project, I use the three-spin model of Aiello et al. (2026) as
+          a <span class="highlight">toy model</span>: two electrons and one
+          nucleus. In the paper, the nucleus pulls on the flavin electron via
+          <span class="highlight">isotropic</span> coupling (same in all
+          directions). In real flavins, the nucleus pulls much more strongly
+          along one axis, perpendicular to the flavin ring (an
+          <span class="highlight">anisotropic</span>
+          coupling).
         </p>
         <div class="quote">
-          Does the paper's model respond to the direction of Earth's field? And
-          if not, what is the smallest change that makes it a compass?
+          Does the toy model respond to the direction of the Earth's magnetic
+          field? <br />And what changes when the coupling is anisotropic?
         </div>
 
         <h2 class="section-title">4. The Hamiltonian</h2>
         <p>
-          Three spins, three qubits: qubit 0 is electron 1 (tryptophan), qubit 1
-          is electron 2 (flavin), qubit 2 is the N5 nucleus. Spin operators are
-          half Paulis, \(\hat S = \sigma/2\). The pair starts in the singlet,
-          with the nucleus 50/50 up or down:
+          We model the three spins with three qubits: qubit 0 is electron 1
+          (tryptophan), qubit 1 is electron 2 (flavin), qubit 2 is the nucleus.
+          Spin operators are half Paulis, \(\hat S = \sigma/2\). The pair starts
+          in the singlet, with the nucleus 50/50 up or down:
         </p>
         <div class="equation">
           $$|S\rangle = \frac{1}{\sqrt{2}}\big(|{\uparrow\downarrow}\rangle -
@@ -225,9 +276,29 @@
 
         <h2 class="section-title">5. Building the Circuit</h2>
         <p>
-          Four gates turn \(|00\rangle\) into the singlet: two electron spins
-          pointing opposite ways, with a minus sign between them.
+          Each spin becomes one qubit: \(|0\rangle\) is spin up and
+          \(|1\rangle\) is spin down. The circuit then does four things:
         </p>
+        <ol>
+          <li>
+            <b>Create the radical pair.</b> Four gates put the two electrons in
+            the singlet, \((|01\rangle - |10\rangle)/\sqrt{2}\).
+          </li>
+          <li>
+            <b>Let time pass.</b> The Hamiltonian (eq 3) becomes a block of
+            gates that evolves the three spins for a time \(t\). This is where
+            the Earth's field and the nucleus act.
+          </li>
+          <li>
+            <b>Undo the singlet.</b> The same four gates in reverse turn the
+            singlet back into \(|00\rangle\).
+          </li>
+          <li>
+            <b>Measure the electrons.</b> Getting 00 means the pair was still a
+            singlet. Repeating this many times gives \(P_S(t)\).
+          </li>
+        </ol>
+        <p>Step 1 in code:</p>
         <div class="code-container">
           <pre><code><span class="keyword">def</span> <span class="function">create_singlet</span>(qc, e1=<span class="number">0</span>, e2=<span class="number">1</span>):
     qc.x(e1)        <span class="comment"># |1&gt;</span>
@@ -259,10 +330,10 @@
         <div class="plot" id="ch-iso"></div>
         <div class="note">
           Checked against the paper's exact formula (eq 18): t = 36 →
-          <span class="highlight-value">0.306</span>, t = 37.5 →
-          <span class="highlight-value">0.351</span>, t = 40 →
-          <span class="highlight-value">0.268</span>. Simulation and paper agree
-          to three decimals.
+          <span class="highlight">0.306</span>, t = 37.5 →
+          <span class="highlight">0.351</span>, t = 40 →
+          <span class="highlight">0.268</span>. Simulation and paper agree to
+          three decimals.
         </div>
 
         <h3 class="section-sub-title">
@@ -276,8 +347,8 @@
         </p>
         <div class="note">
           Largest difference between θ = 0° and θ = 90°:
-          <span class="highlight-value">about 10⁻¹⁵</span>, which is rounding
-          error. No compass.
+          <span class="highlight">about 10⁻¹⁵</span>, which is rounding error.
+          No compass.
         </div>
 
         <h3 class="section-sub-title">6.3 Giving the molecule an axis</h3>
@@ -291,10 +362,10 @@
         <div class="plot" id="ch-aniso"></div>
         <div class="legend" id="lg-aniso"></div>
         <div class="note">
-          P(singlet) at t = 4π: 0° → <span class="highlight-value">1.000</span>,
-          30° → <span class="highlight-value">0.906</span>, 60° →
-          <span class="highlight-value">0.739</span>, 90° →
-          <span class="highlight-value">0.664</span>
+          P(singlet) at t = 4π: 0° → <span class="highlight">1.000</span>, 30° →
+          <span class="highlight">0.906</span>, 60° →
+          <span class="highlight">0.739</span>, 90° →
+          <span class="highlight">0.664</span>
         </div>
 
         <h3 class="section-sub-title">6.4 The signal at each angle</h3>
@@ -304,9 +375,9 @@
         </p>
         <div class="plot" id="ch-yield"></div>
         <div class="note">
-          Triplet yield rises from <span class="highlight-value">0.495</span> at
-          0° to <span class="highlight-value">0.687</span> at 90°, about 39%
-          stronger. It changes fastest near 40°.
+          Triplet yield rises from <span class="highlight">0.495</span> at 0° to
+          <span class="highlight">0.687</span> at 90°, about 39% stronger. It
+          changes fastest near 40°.
         </div>
 
         <h2 class="section-title">7. Running on IonQ</h2>
