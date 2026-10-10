@@ -93,9 +93,9 @@ a:hover {
 }
 .author {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.1s rem;
   font-weight: 600;
-  color: var(--orange-deep);
+  /* color: var(--orange-deep); */
 }
 .date-author {
   display: flex;
