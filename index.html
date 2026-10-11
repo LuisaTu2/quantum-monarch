@@ -493,6 +493,167 @@
 
         </div> -->
 
+        <!-- ===== Section 7: What Might She Sense? ===== -->
+        <h2 class="section-title">7. What Might She Sense?</h2>
+        <p>
+          The triplet yield tells us how strong the signal is for a given angle
+          between the coupling axis and the Earth's magnetic field. But what
+          would that mean for a butterfly turning in flight? Below, you can turn
+          her around and watch the signal change. The tint shows the simulated
+          triplet yield (real flavin values, Earth's field, 1&nbsp;µs lifetime).
+        </p>
+
+        <section class="cv" id="compass-view">
+          <div class="cv-stage">
+            <!-- the world she flies over: a 360° panorama, 1600 wide; compass-view.js repeats it so it wraps -->
+            <svg
+              class="cv-scene"
+              viewBox="0 0 800 500"
+              preserveAspectRatio="xMidYMid slice"
+              aria-hidden="true"
+            >
+              <!-- your painting, next to a mirrored copy of itself, so the 360° view wraps without a seam.
+                   To use a bigger photo: replace assets/night-garden.png and keep its proportions
+                   in data-ratio (width / height). -->
+              <g id="cv-world">
+                <g
+                  id="cv-pano"
+                  data-src="assets/night-garden.png"
+                  data-ratio="1.852"
+                ></g>
+              </g>
+            </svg>
+
+            <!-- the signal: an even tint, because the model gives one number per heading, not a pattern -->
+            <div class="cv-wash"></div>
+
+            <div class="cv-hud">
+              <!-- seen from above: north is up, field lines point north -->
+              <div class="cv-card cv-top">
+                <div class="cv-card-title">seen from above</div>
+                <svg
+                  viewBox="0 0 160 160"
+                  aria-label="Butterfly heading relative to Earth's field, seen from above"
+                >
+                  <defs>
+                    <marker
+                      id="cv-arrow"
+                      viewBox="0 0 10 10"
+                      refX="8"
+                      refY="5"
+                      markerWidth="6"
+                      markerHeight="6"
+                      orient="auto"
+                    >
+                      <path d="M0 0 L10 5 L0 10 Z" fill="#6f8fb0" />
+                    </marker>
+                  </defs>
+                  <g class="cv-field">
+                    <line
+                      x1="40"
+                      y1="150"
+                      x2="40"
+                      y2="14"
+                      marker-end="url(#cv-arrow)"
+                    />
+                    <line
+                      x1="80"
+                      y1="150"
+                      x2="80"
+                      y2="14"
+                      marker-end="url(#cv-arrow)"
+                    />
+                    <line
+                      x1="120"
+                      y1="150"
+                      x2="120"
+                      y2="14"
+                      marker-end="url(#cv-arrow)"
+                    />
+                  </g>
+                  <text class="cv-dir" x="80" y="10">N</text>
+                  <g id="cv-bfly" transform="translate(80 82) rotate(-90)">
+                    <line class="cv-axis" x1="-56" y1="0" x2="56" y2="0" />
+                    <!-- an original, simplified monarch seen from above, head to the right -->
+                    <path
+                      class="cv-wing"
+                      d="M4 -3 C12 -34 38 -44 44 -28 C47 -17 32 -6 6 -2 Z"
+                    />
+                    <path
+                      class="cv-wing"
+                      d="M4 3 C12 34 38 44 44 28 C47 17 32 6 6 2 Z"
+                    />
+                    <path
+                      class="cv-wing cv-hind"
+                      d="M-2 -3 C-6 -26 -26 -32 -30 -20 C-33 -11 -20 -4 -2 -1 Z"
+                    />
+                    <path
+                      class="cv-wing cv-hind"
+                      d="M-2 3 C-6 26 -26 32 -30 20 C-33 11 -20 4 -2 1 Z"
+                    />
+                    <ellipse class="cv-body" cx="0" cy="0" rx="16" ry="4" />
+                    <circle class="cv-body" cx="18" cy="0" r="3.2" />
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-readout" aria-live="polite">
+            <span>facing <b id="cv-heading">N 0°</b></span>
+            <span>angle to field <b id="cv-angle">0°</b></span>
+            <span>triplet yield <b id="cv-yield">0.597</b></span>
+          </div>
+
+          <div class="cv-controls">
+            <button type="button" id="cv-play" aria-label="Play rotation">
+              ▶
+            </button>
+            <input
+              type="range"
+              id="cv-slider"
+              min="0"
+              max="359"
+              step="1"
+              value="0"
+              aria-label="Butterfly heading"
+            />
+          </div>
+
+          <p class="cv-caption">
+            <b>Change her orientation.</b> The signal is weakest facing north or
+            south, along the field line, and strongest facing east or west,
+            across it. Opposite headings always give the same signal.
+          </p>
+
+          <div class="cv-warning" role="note">
+            <span class="cv-warning-icon" aria-hidden="true">!</span>
+            <p>
+              <b>ATTENTION</b><br />
+              The flavin's coupling axis (dashed line) is assumed to point along
+              the butterfly's body, but how cryptochromes are oriented in
+              monarch tissue is unknown. The field is drawn flat, without its
+              real dip into the ground. The tint is an artistic interpretation
+              of signal strength, not a direction to fly towards. Monarchs
+              likely sense the signal through their antennae, and how it is
+              perceived is unknown.
+            </p>
+          </div>
+        </section>
+
+        <p>
+          The signal tells her how she is turned relative to the field line, not
+          where to go. With a flat field, facing north or south gives exactly
+          the same signal. Monarchs are thought to use an
+          <span class="highlight">inclination compass</span>, which reads how
+          steeply the field lines dip into the ground, together with their sun
+          compass, to choose their direction (<a
+            href="https://www.nature.com/articles/ncomms5164"
+            >Guerra et al., 2014</a
+          >).
+        </p>
+        <!-- ===== end Section 7 ===== -->
+
         <h2 class="section-title">7. Running on IonQ</h2>
         <p>
           Qollab allows one job per run, so six experiments are packed side by
@@ -655,4 +816,5 @@
 
     <script src="charts.js"></script>
   </body>
+  <script src="compass-view.js"></script>
 </html>
