@@ -443,55 +443,31 @@
           is where the compass would be most sensitive.
         </p>
 
-        <!-- <h3 class="section-sub-title">6.5 Field strength and pair lifetime</h3>
+        <h3 class="section-sub-title">6.5 Real values</h3>
         <p>
-          The results above use toy values: field strength \(\omega/a = 0.1\)
-          and decay rate \(k = 0.05\). The Earth's field is weaker, closer to
-          \(\omega/a \approx 0.03\). The table shows how much stronger the
-          signal is at 90° than at 0°, for different field strengths and pair
-          lifetimes:
+          The results above use toy values. Using the real coupling of the
+          flavin's nitrogen (\(A_\parallel = 49.2\) MHz, \(A_\perp = -2.6\) MHz;
+          Smith et al., 2022), the Earth's field (50&nbsp;µT, \(\omega/a \approx
+          0.03\)) and a pair lifetime of about 1&nbsp;µs, the compass survives.
         </p>
-        <div class="table-container">
-          <table class="parameter-table">
-            <thead>
-              <tr>
-                <th>\(\omega/a\)</th>
-                <th>long-lived pair (\(k = 0.01\))</th>
-                <th>toy model (\(k = 0.05\))</th>
-                <th>short-lived pair (\(k = 0.2\))</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>0.03 (Earth)</td>
-                <td>45%</td>
-                <td>13%</td>
-                <td>1%</td>
-              </tr>
-              <tr>
-                <td>0.1</td>
-                <td>48%</td>
-                <td><span class="highlight">39%</span></td>
-                <td>10%</td>
-              </tr>
-              <tr>
-                <td>0.3</td>
-                <td>37%</td>
-                <td>35%</td>
-                <td>19%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <figure class="figure">
+          <img
+            src="assets/real-values.png"
+            alt="Triplet yield versus angle, toy model and real values"
+          />
+          <figcaption>
+            <b>Figure 5.</b> Triplet yield against angle for the toy model and
+            for real flavin values with the Earth's field and a 1&nbsp;µs
+            lifetime.
+          </figcaption>
+        </figure>
         <div class="note">
-          A weak field needs time to act. With an Earth-strength field, the
-          compass almost disappears if the pair dies quickly (1%), but comes
-          back strongly if the pair lives long enough (45%). Roughly, the pair
-          has to live longer than \(1/\omega\), the time the field takes to turn
-          a spin.
-
-
-        </div> -->
+          With real values, the triplet yield rises from
+          <span class="highlight">0.597</span> at 0° to
+          <span class="highlight">0.746</span> at 90°: about
+          <span class="highlight">25% stronger</span> across the field line than
+          along it.
+        </div>
 
         <!-- ===== Section 7: What Might She Sense? ===== -->
         <h2 class="section-title">7. What Might She Sense?</h2>
@@ -812,6 +788,6 @@
     </div>
 
     <script src="charts.js"></script>
+    <script src="compass-view.js"></script>
   </body>
-  <script src="compass-view.js"></script>
 </html>
