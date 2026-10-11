@@ -502,7 +502,7 @@
           1000 shots, measuring only the electrons.
         </p>
 
-        <div class="legend">
+        <!-- <div class="legend">
           <span><i class="sw fg"></i>exact</span>
           <span
             ><i class="dot" style="background: var(--color-heading)"></i
@@ -512,13 +512,22 @@
             ><i class="dot" style="border: 2px solid var(--color-orange)"></i
             >IonQ Forte 1 noise model</span
           >
-        </div>
+        </div> -->
         <p>
           On the ideal simulator every point lands on the exact line, so the
           circuits are correct. On Forte's noise model, gate errors pull the
           values down, more for longer circuits. The compass trend survives:
           P(singlet) still falls steadily as the angle grows.
         </p>
+
+        <figure class="figure">
+          <img src="assets/backend.svg" alt="Triplet yield versus angle" />
+          <figcaption>
+            <b>Figure 4.</b> Triplet yield (the signal) against the angle
+            between the butterfly's body and the Earth's field line.
+          </figcaption>
+        </figure>
+        CHAAAANGE
 
         <h2 class="section-title">8. Sources of Errors and Assumptions</h2>
         <p>
