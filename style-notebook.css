@@ -418,6 +418,20 @@ li::marker {
   stroke: var(--orange);
 }
 
+/* pledge box: milkweed green */
+.pledge {
+  border-left-color: var(--milkweed);
+  background: #eef4ea;
+}
+.pledge .callout-title,
+.pledge a {
+  color: var(--milkweed);
+}
+
+.pledge a:hover {
+  color: var(--milkweed);
+  opacity: 0.7;
+}
 /* ---------- Footer ---------- */
 .footer {
   margin: 72px 0 80px;
