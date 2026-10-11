@@ -63,19 +63,32 @@
             >
           </li>
           <li>
+            <a href="#what-she-senses"
+              ><span class="toc-num">3</span>A Quick Preview: What Might She
+              Sense? <span class="toc-tag">interactive</span></a
+            >
+          </li>
+          <li>
             <a href="#problem"
-              ><span class="toc-num">3</span>Problem Statement</a
+              ><span class="toc-num">4</span>Problem Statement</a
             >
           </li>
           <li>
-            <a href="#hamiltonian"
-              ><span class="toc-num">4</span>The Hamiltonian</a
+            <a href="#math"
+              ><span class="toc-num">5</span>The Math and Circuits</a
             >
-          </li>
-          <li>
-            <a href="#circuit"
-              ><span class="toc-num">5</span>Building the Circuit</a
-            >
+            <ul>
+              <li>
+                <a href="#hamiltonian"
+                  ><span class="toc-num">5.1</span>The Hamiltonian</a
+                >
+              </li>
+              <li>
+                <a href="#circuit"
+                  ><span class="toc-num">5.2</span>Building the Circuit</a
+                >
+              </li>
+            </ul>
           </li>
           <li>
             <a href="#results"
@@ -111,26 +124,20 @@
             </ul>
           </li>
           <li>
-            <a href="#what-she-senses"
-              ><span class="toc-num">7</span>What Might She Sense?
-              <span class="toc-tag">interactive</span></a
-            >
-          </li>
-          <li>
-            <a href="#ionq"><span class="toc-num">8</span>Running on IonQ</a>
+            <a href="#ionq"><span class="toc-num">7</span>Running on IonQ</a>
           </li>
           <li>
             <a href="#errors"
-              ><span class="toc-num">9</span>Sources of Errors and
+              ><span class="toc-num">8</span>Sources of Errors and
               Assumptions</a
             >
           </li>
           <li>
-            <a href="#next-steps"><span class="toc-num">10</span>Next Steps</a>
+            <a href="#next-steps"><span class="toc-num">9</span>Next Steps</a>
           </li>
           <li>
             <a href="#summary"
-              ><span class="toc-num">11</span>Summary and Conclusions</a
+              ><span class="toc-num">10</span>Summary and Conclusions</a
             >
           </li>
           <li><a href="#references">References</a></li>
@@ -183,6 +190,13 @@
           nucleus) with the
           <span class="highlight">Earth's magnetic field</span> influences how
           the butterfly orients herself, effectively creating a quantum compass.
+        </p>
+
+        <p class="teaser">
+          Want to see it first? Check out the
+          <a href="#what-she-senses" class="teaser-btn">
+            interactive demo ↓ 🦋</a
+          >
         </p>
         <img
           class="schematics portrait"
@@ -267,9 +281,178 @@
           triplet. If the pair ends up in a triplet, it is thought that a signal
           is sent to the butterfly. We will later see that the angle between the
           electron-nucleus coupling axis and the direction of the Earth's
-          magnetic field directly affects how strong that signal is.
+          magnetic field directly affects how strong that signal is. Try it
+          below!
         </div>
-        <h2 class="section-title" id="problem">3. Problem Statement</h2>
+
+        <!-- ===== Section 3 What Might She Sense? ===== -->
+        <h2 class="section-title" id="what-she-senses">
+          3. What Might She Sense?
+        </h2>
+        <p>
+          Want to skip the maths? Here is a preview of where this project ends
+          up. Turn the butterfly around and watch how the strength of the signal
+          changes with the angle between her body and the Earth's magnetic
+          field. The tint follows the simulated triplet yield, the share of
+          radical pairs that end as a triplet and can signal, with real flavin
+          values, the Earth's field and a 1&nbsp;µs lifetime (<a
+            href="#real-values"
+            >Section 6.5</a
+          >). The rest of the page explains how we get there.
+        </p>
+
+        <section class="cv" id="compass-view">
+          <div class="cv-stage">
+            <!-- the world she flies over: a 360° panorama, 1600 wide; compass-view.js repeats it so it wraps -->
+            <svg
+              class="cv-scene"
+              viewBox="0 0 800 500"
+              preserveAspectRatio="xMidYMid slice"
+              aria-hidden="true"
+            >
+              <!-- your painting, next to a mirrored copy of itself, so the 360° view wraps without a seam.
+                   To use a bigger photo: replace assets/night-garden.png and keep its proportions
+                   in data-ratio (width / height). -->
+              <g id="cv-world">
+                <g
+                  id="cv-pano"
+                  data-src="assets/night-garden.png"
+                  data-ratio="1.852"
+                ></g>
+              </g>
+            </svg>
+
+            <!-- the signal: an even tint, because the model gives one number per heading, not a pattern -->
+            <div class="cv-wash"></div>
+
+            <div class="cv-hud">
+              <!-- seen from above: north is up, field lines point north -->
+              <div class="cv-card cv-top">
+                <div class="cv-card-title">seen from above</div>
+                <svg
+                  viewBox="0 0 160 160"
+                  aria-label="Butterfly heading relative to Earth's field, seen from above"
+                >
+                  <defs>
+                    <marker
+                      id="cv-arrow"
+                      viewBox="0 0 10 10"
+                      refX="8"
+                      refY="5"
+                      markerWidth="6"
+                      markerHeight="6"
+                      orient="auto"
+                    >
+                      <path d="M0 0 L10 5 L0 10 Z" fill="#6f8fb0" />
+                    </marker>
+                  </defs>
+                  <g class="cv-field">
+                    <line
+                      x1="40"
+                      y1="150"
+                      x2="40"
+                      y2="14"
+                      marker-end="url(#cv-arrow)"
+                    />
+                    <line
+                      x1="80"
+                      y1="150"
+                      x2="80"
+                      y2="14"
+                      marker-end="url(#cv-arrow)"
+                    />
+                    <line
+                      x1="120"
+                      y1="150"
+                      x2="120"
+                      y2="14"
+                      marker-end="url(#cv-arrow)"
+                    />
+                  </g>
+                  <text class="cv-dir" x="80" y="10">N</text>
+                  <g id="cv-bfly" transform="translate(80 82) rotate(-90)">
+                    <line class="cv-axis" x1="-56" y1="0" x2="56" y2="0" />
+                    <!-- an original, simplified monarch seen from above, head to the right -->
+                    <path
+                      class="cv-wing"
+                      d="M4 -3 C12 -34 38 -44 44 -28 C47 -17 32 -6 6 -2 Z"
+                    />
+                    <path
+                      class="cv-wing"
+                      d="M4 3 C12 34 38 44 44 28 C47 17 32 6 6 2 Z"
+                    />
+                    <path
+                      class="cv-wing cv-hind"
+                      d="M-2 -3 C-6 -26 -26 -32 -30 -20 C-33 -11 -20 -4 -2 -1 Z"
+                    />
+                    <path
+                      class="cv-wing cv-hind"
+                      d="M-2 3 C-6 26 -26 32 -30 20 C-33 11 -20 4 -2 1 Z"
+                    />
+                    <ellipse class="cv-body" cx="0" cy="0" rx="16" ry="4" />
+                    <circle class="cv-body" cx="18" cy="0" r="3.2" />
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-readout" aria-live="polite">
+            <span>facing <b id="cv-heading">N 0°</b></span>
+            <span>angle to field <b id="cv-angle">0°</b></span>
+            <span>triplet yield <b id="cv-yield">0.597</b></span>
+          </div>
+
+          <div class="cv-controls">
+            <button type="button" id="cv-play" aria-label="Play rotation">
+              ▶
+            </button>
+            <input
+              type="range"
+              id="cv-slider"
+              min="0"
+              max="359"
+              step="1"
+              value="0"
+              aria-label="Butterfly heading"
+            />
+          </div>
+
+          <p class="cv-caption">
+            <b>Change her orientation.</b> The signal is weakest facing north or
+            south, along the field line, and strongest facing east or west,
+            across it. Opposite headings always give the same signal.
+          </p>
+
+          <div class="cv-warning" role="note">
+            <span class="cv-warning-icon" aria-hidden="true">!</span>
+            <p>
+              <b>ATTENTION</b><br />
+              The flavin's coupling axis (dashed line) is assumed to point along
+              the butterfly's body, but how cryptochromes are oriented in
+              monarch tissue is unknown. The field is drawn flat, without its
+              real dip into the ground. The tint is an artistic interpretation
+              of signal strength, not a direction to fly towards. Monarchs
+              likely sense the signal through their antennae, and how it is
+              perceived is unknown.
+            </p>
+          </div>
+        </section>
+
+        <p>
+          The signal tells her how she is turned relative to the field line, not
+          where to go. With a flat field, facing north or south gives exactly
+          the same signal. Monarchs are thought to use an
+          <span class="highlight">inclination compass</span>, which reads how
+          steeply the field lines dip into the ground, together with their sun
+          compass, to choose their direction (<a
+            href="https://www.nature.com/articles/ncomms5164"
+            >Guerra et al., 2014</a
+          >).
+        </p>
+        <!-- ===== end Section 3 ===== -->
+
+        <h2 class="section-title" id="problem">4. Problem Statement</h2>
         <p>
           In this project, I use the three-spin model of Aiello et al. (2026) as
           a <span class="highlight">toy model</span>: two electrons and one
@@ -285,7 +468,9 @@
           field? <br />And what changes when the coupling is anisotropic?
         </div>
 
-        <h2 class="section-title" id="hamiltonian">4. The Hamiltonian</h2>
+        <h2 class="section-title" id="math">5. The Math and Circuits</h2>
+
+        <h3 class="section-sub-title" id="hamiltonian">5.1 The Hamiltonian</h3>
         <p>
           We model the three spins with three qubits: qubit 0 is electron 1
           (tryptophan), qubit 1 is electron 2 (flavin), qubit 2 is the nucleus.
@@ -368,7 +553,7 @@
           </table>
         </div>
 
-        <h2 class="section-title" id="circuit">5. Building the Circuit</h2>
+        <h3 class="section-sub-title" id="circuit">5.2 Building the Circuit</h3>
         <p>
           Each spin becomes one qubit: \(|0\rangle\) is spin up and
           \(|1\rangle\) is spin down. The circuit then does four things:
@@ -563,170 +748,7 @@
           along it.
         </div>
 
-        <!-- ===== Section 7: What Might She Sense? ===== -->
-        <h2 class="section-title" id="what-she-senses">
-          7. What Might She Sense?
-        </h2>
-        <p>
-          The triplet yield tells us how strong the signal is for a given angle
-          between the coupling axis and the Earth's magnetic field. But what
-          would that mean for a butterfly turning in flight? Below, you can turn
-          her around and watch the signal change. The tint shows the simulated
-          triplet yield (real flavin values, Earth's field, 1&nbsp;µs lifetime).
-        </p>
-
-        <section class="cv" id="compass-view">
-          <div class="cv-stage">
-            <!-- the world she flies over: a 360° panorama, 1600 wide; compass-view.js repeats it so it wraps -->
-            <svg
-              class="cv-scene"
-              viewBox="0 0 800 500"
-              preserveAspectRatio="xMidYMid slice"
-              aria-hidden="true"
-            >
-              <!-- your painting, next to a mirrored copy of itself, so the 360° view wraps without a seam.
-                   To use a bigger photo: replace assets/night-garden.png and keep its proportions
-                   in data-ratio (width / height). -->
-              <g id="cv-world">
-                <g
-                  id="cv-pano"
-                  data-src="assets/night-garden.png"
-                  data-ratio="1.852"
-                ></g>
-              </g>
-            </svg>
-
-            <!-- the signal: an even tint, because the model gives one number per heading, not a pattern -->
-            <div class="cv-wash"></div>
-
-            <div class="cv-hud">
-              <!-- seen from above: north is up, field lines point north -->
-              <div class="cv-card cv-top">
-                <div class="cv-card-title">seen from above</div>
-                <svg
-                  viewBox="0 0 160 160"
-                  aria-label="Butterfly heading relative to Earth's field, seen from above"
-                >
-                  <defs>
-                    <marker
-                      id="cv-arrow"
-                      viewBox="0 0 10 10"
-                      refX="8"
-                      refY="5"
-                      markerWidth="6"
-                      markerHeight="6"
-                      orient="auto"
-                    >
-                      <path d="M0 0 L10 5 L0 10 Z" fill="#6f8fb0" />
-                    </marker>
-                  </defs>
-                  <g class="cv-field">
-                    <line
-                      x1="40"
-                      y1="150"
-                      x2="40"
-                      y2="14"
-                      marker-end="url(#cv-arrow)"
-                    />
-                    <line
-                      x1="80"
-                      y1="150"
-                      x2="80"
-                      y2="14"
-                      marker-end="url(#cv-arrow)"
-                    />
-                    <line
-                      x1="120"
-                      y1="150"
-                      x2="120"
-                      y2="14"
-                      marker-end="url(#cv-arrow)"
-                    />
-                  </g>
-                  <text class="cv-dir" x="80" y="10">N</text>
-                  <g id="cv-bfly" transform="translate(80 82) rotate(-90)">
-                    <line class="cv-axis" x1="-56" y1="0" x2="56" y2="0" />
-                    <!-- an original, simplified monarch seen from above, head to the right -->
-                    <path
-                      class="cv-wing"
-                      d="M4 -3 C12 -34 38 -44 44 -28 C47 -17 32 -6 6 -2 Z"
-                    />
-                    <path
-                      class="cv-wing"
-                      d="M4 3 C12 34 38 44 44 28 C47 17 32 6 6 2 Z"
-                    />
-                    <path
-                      class="cv-wing cv-hind"
-                      d="M-2 -3 C-6 -26 -26 -32 -30 -20 C-33 -11 -20 -4 -2 -1 Z"
-                    />
-                    <path
-                      class="cv-wing cv-hind"
-                      d="M-2 3 C-6 26 -26 32 -30 20 C-33 11 -20 4 -2 1 Z"
-                    />
-                    <ellipse class="cv-body" cx="0" cy="0" rx="16" ry="4" />
-                    <circle class="cv-body" cx="18" cy="0" r="3.2" />
-                  </g>
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <div class="cv-readout" aria-live="polite">
-            <span>facing <b id="cv-heading">N 0°</b></span>
-            <span>angle to field <b id="cv-angle">0°</b></span>
-            <span>triplet yield <b id="cv-yield">0.597</b></span>
-          </div>
-
-          <div class="cv-controls">
-            <button type="button" id="cv-play" aria-label="Play rotation">
-              ▶
-            </button>
-            <input
-              type="range"
-              id="cv-slider"
-              min="0"
-              max="359"
-              step="1"
-              value="0"
-              aria-label="Butterfly heading"
-            />
-          </div>
-
-          <p class="cv-caption">
-            <b>Change her orientation.</b> The signal is weakest facing north or
-            south, along the field line, and strongest facing east or west,
-            across it. Opposite headings always give the same signal.
-          </p>
-
-          <div class="cv-warning" role="note">
-            <span class="cv-warning-icon" aria-hidden="true">!</span>
-            <p>
-              <b>ATTENTION</b><br />
-              The flavin's coupling axis (dashed line) is assumed to point along
-              the butterfly's body, but how cryptochromes are oriented in
-              monarch tissue is unknown. The field is drawn flat, without its
-              real dip into the ground. The tint is an artistic interpretation
-              of signal strength, not a direction to fly towards. Monarchs
-              likely sense the signal through their antennae, and how it is
-              perceived is unknown.
-            </p>
-          </div>
-        </section>
-
-        <p>
-          The signal tells her how she is turned relative to the field line, not
-          where to go. With a flat field, facing north or south gives exactly
-          the same signal. Monarchs are thought to use an
-          <span class="highlight">inclination compass</span>, which reads how
-          steeply the field lines dip into the ground, together with their sun
-          compass, to choose their direction (<a
-            href="https://www.nature.com/articles/ncomms5164"
-            >Guerra et al., 2014</a
-          >).
-        </p>
-        <!-- ===== end Section 7 ===== -->
-
-        <h2 class="section-title" id="ionq">8. Running on IonQ</h2>
+        <h2 class="section-title" id="ionq">7. Running on IonQ</h2>
         <p>
           Qollab allows one job per run, so six experiments are packed side by
           side into one 24-qubit circuit. Each experiment gets a helper qubit
@@ -760,7 +782,7 @@
         </p>
 
         <h2 class="section-title" id="errors">
-          9. Sources of Errors and Assumptions
+          8. Sources of Errors and Assumptions
         </h2>
         <p>
           This is a toy model, so it is important to be clear about what it can
@@ -791,7 +813,7 @@
           quantum hardware becomes useful.
         </p>
 
-        <h2 class="section-title" id="next-steps">10. Next Steps</h2>
+        <h2 class="section-title" id="next-steps">9. Next Steps</h2>
         <ul>
           <li>
             Inclination: the real field dips about 70° into the ground, and its
@@ -810,7 +832,7 @@
           <li>Error mitigation on Forte, and a run on real IonQ hardware</li>
         </ul>
 
-        <h2 class="section-title" id="summary">11. Summary and Conclusions</h2>
+        <h2 class="section-title" id="summary">10. Summary and Conclusions</h2>
         <div class="conclusions">
           <ul>
             <li>

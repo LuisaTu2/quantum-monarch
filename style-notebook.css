@@ -1268,13 +1268,37 @@ html {
     visibility 0.2s,
     background 0.2s;
 }
+
 .to-top.is-visible {
-  opacity: 1;
+  opacity: 0.55;
   visibility: visible;
   transform: none;
 }
-.to-top:hover {
-  background: var(--orange-deep, #b4500f);
+.to-top.is-visible:hover {
+  opacity: 1;
+}
+/* ===== cute teaser ===== */
+.teaser {
+  margin: 18px 0 26px;
+}
+.teaser-btn {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: #fde3c8;
+  color: var(--orange-deep, #b4500f) !important;
+  font-size: 0.9em;
+  font-weight: 600;
+  border-bottom: none !important;
+  text-decoration: none;
+  transition:
+    transform 0.15s,
+    background 0.15s;
+}
+.teaser-btn:hover {
+  background: #fbd3ad;
+  transform: translateY(-1px) rotate(-2deg);
 }
 
 /* ===== 7. What Might She Sense? ===== */
