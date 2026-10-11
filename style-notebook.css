@@ -441,6 +441,12 @@ li::marker {
   color: var(--vein);
   margin: 8px 0 20px;
 }
+
+.credits {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-top: 24px;
+}
 /* ---------- Footer ---------- */
 .footer {
   margin: 72px 0 80px;
@@ -1091,4 +1097,15 @@ html {
   .cv-wash {
     transition: none;
   }
+}
+
+/* smaller Contents box */
+/* smaller Contents box */
+.toc {
+  font-size: 0.95rem;
+  padding: 14px 20px 12px;
+  margin: 6px 0 36px;
+}
+.toc li {
+  line-height: 1.65;
 }

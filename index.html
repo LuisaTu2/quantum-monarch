@@ -149,6 +149,7 @@
               ><span class="toc-num">10</span>Why She Needs Our Help</a
             >
           </li>
+          <li><a href="#credits">Credits</a></li>
           <li><a href="#references">References</a></li>
         </ul>
       </nav>
@@ -918,7 +919,7 @@
           circuits, which is an open challenge for today's hardware.
         </p>
 
-        <h2 class="section-title" id="next-steps">9. Next Steps</h2>
+        <h2 class="section-title" id="next-steps">8. Next Steps</h2>
         <p>There's a lot more we'd love to try:</p>
         <ul>
           <li>
@@ -951,24 +952,55 @@
         </ul>
 
         <h2 class="section-title" id="summary">9. Summary and Conclusions</h2>
+        <p>
+          A pair of electrons, born entangled by a flash of blue light, may help
+          a monarch butterfly find her way across a continent. In this project,
+          that radical pair was built on three qubits and followed in time, to
+          ask what turns it into a compass.
+        </p>
         <div class="conclusions">
           <ul>
             <li>
-              <b>Direction needs anisotropy.</b> With the paper's isotropic
-              coupling, the field's direction changes nothing.
+              <b>The simulation matches the paper.</b> The three-qubit circuit
+              reproduces the exact result of Aiello et al. (2026) to three
+              decimals.
             </li>
-
             <li>
-              <b>The signal depends on the angle.</b> With an axial coupling,
-              the triplet yield rises from 0.50 at 0° to 0.69 at 90°.
+              <b>Direction needs structure.</b> When the nucleus pulls on the
+              flavin electron equally in all directions, turning the Earth's
+              field changes nothing. There is no compass.
+            </li>
+            <li>
+              <b>The signal depends on the angle.</b> When the nucleus pulls
+              mostly along one axis, as in real flavins, the triplet yield
+              depends on the angle between that axis and the field. With real
+              flavin values, it rises from 0.60 to 0.75: about
+              <span class="highlight">25% stronger</span> across the field than
+              along it.
             </li>
             <li>
               <b>It survives hardware noise.</b> On IonQ Forte 1's noise model,
-              values drop but the compass trend holds.
+              the values drop, but the compass trend holds.
             </li>
           </ul>
         </div>
-
+        <p>
+          Along the way, this project became a way to explore
+          <span class="highlight">entanglement</span> itself: not as an abstract
+          idea from a lab or a textbook, but as something that might be
+          happening right now, inside a butterfly in a garden. With the
+          paintings, the plots and the interactive demo, we hope it helped
+          entanglement and its evolution in time "click" for you, the way it did
+          for us.
+        </p>
+        <p>
+          This is still a toy model: one nucleus, no decoherence, and an assumed
+          orientation for the cryptochrome. How a monarch actually perceives the
+          signal is unknown. But it shows, step by step, how entanglement, a
+          nucleus and the Earth's field could work together inside a living
+          creature, and each extra nucleus doubles the problem size, which is
+          exactly where quantum computers could help us explore further.
+        </p>
         <h2 class="section-title" id="conservation">
           10. Why She Needs Our Help
         </h2>
@@ -995,6 +1027,14 @@
           >, a community project I founded to restore monarch and pollinator
           habitat through art in Tecumseh, Ontario.
         </div>
+        <h2 class="section-title" id="credits">Credits</h2>
+        <p class="">
+          All paintings, illustrations, code and writing on this page were
+          created by me during the hackathon. Thank you to my mentor
+          <b>Andrew Projansky</b> for his guidance throughout the project, from
+          the anisotropic coupling and real flavin values to helping the ideas
+          "click". His help has been invaluable.
+        </p>
 
         <h2 class="section-title" id="references">References</h2>
         <ul>
@@ -1037,10 +1077,6 @@
             <a href="https://arxiv.org/abs/2206.07355">arXiv:2206.07355</a>
           </li>
         </ul>
-        <p style="font-size: 0.95rem; color: var(--color-text-muted)">
-          Paintings are my own. Thanks to my mentor Andrew Projansky for
-          feedback on the anisotropic coupling.
-        </p>
       </div>
 
       <div class="footer">
