@@ -432,6 +432,15 @@ li::marker {
   color: var(--milkweed);
   opacity: 0.7;
 }
+
+.abstract-word {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--vein);
+  margin: 8px 0 20px;
+}
 /* ---------- Footer ---------- */
 .footer {
   margin: 72px 0 80px;
