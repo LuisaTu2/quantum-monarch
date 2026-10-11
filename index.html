@@ -27,7 +27,7 @@
     ></script>
   </head>
   <body>
-    <div class="root">
+    <div class="root" id="top">
       <div class="header">
         <h1 class="header-title">Quantum & Butterflies</h1>
         <p class="header-sub-title">
@@ -47,8 +47,98 @@
         </div>
       </div>
 
+      <!-- ===== Contents: every section is linkable ===== -->
+      <nav class="toc" aria-label="Contents">
+        <div class="toc-title">Contents</div>
+        <ul>
+          <li><a href="#abstract">Abstract</a></li>
+          <li>
+            <a href="#introduction"
+              ><span class="toc-num">1</span>Introduction</a
+            >
+          </li>
+          <li>
+            <a href="#radical-pair"
+              ><span class="toc-num">2</span>The Radical Pair</a
+            >
+          </li>
+          <li>
+            <a href="#problem"
+              ><span class="toc-num">3</span>Problem Statement</a
+            >
+          </li>
+          <li>
+            <a href="#hamiltonian"
+              ><span class="toc-num">4</span>The Hamiltonian</a
+            >
+          </li>
+          <li>
+            <a href="#circuit"
+              ><span class="toc-num">5</span>Building the Circuit</a
+            >
+          </li>
+          <li>
+            <a href="#results"
+              ><span class="toc-num">6</span>Results and Analysis</a
+            >
+            <ul>
+              <li>
+                <a href="#paper-model"
+                  ><span class="toc-num">6.1</span>Reproducing the paper</a
+                >
+              </li>
+              <li>
+                <a href="#tilting"
+                  ><span class="toc-num">6.2</span>Tilting the field: nothing
+                  changes</a
+                >
+              </li>
+              <li>
+                <a href="#anisotropic"
+                  ><span class="toc-num">6.3</span>Anisotropic coupling</a
+                >
+              </li>
+              <li>
+                <a href="#signal"
+                  ><span class="toc-num">6.4</span>The signal at each angle</a
+                >
+              </li>
+              <li>
+                <a href="#real-values"
+                  ><span class="toc-num">6.5</span>Real values</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#what-she-senses"
+              ><span class="toc-num">7</span>What Might She Sense?
+              <span class="toc-tag">interactive</span></a
+            >
+          </li>
+          <li>
+            <a href="#ionq"><span class="toc-num">8</span>Running on IonQ</a>
+          </li>
+          <li>
+            <a href="#errors"
+              ><span class="toc-num">9</span>Sources of Errors and
+              Assumptions</a
+            >
+          </li>
+          <li>
+            <a href="#next-steps"><span class="toc-num">10</span>Next Steps</a>
+          </li>
+          <li>
+            <a href="#summary"
+              ><span class="toc-num">11</span>Summary and Conclusions</a
+            >
+          </li>
+          <li><a href="#references">References</a></li>
+        </ul>
+      </nav>
+
       <div class="content">
-        <h2 class="section-title">Abstract</h2>
+        <h2 class="section-title" id="abstract">Abstract</h2>
         <p>
           <!-- Monarch butterflies may sense Earth's magnetic field through a quantum
           effect in the protein cryptochrome: a pair of entangled electrons, the
@@ -62,7 +152,7 @@
           Qollab's built-in simulator and on the IonQ Forte 1 noise model, where
           noise lowers the values but the compass trend survives. -->
         </p>
-        <h2 class="section-title">1. Introduction</h2>
+        <h2 class="section-title" id="introduction">1. Introduction</h2>
         <p>
           She is a symbol of summer, flowers and ephemeralness: meet the monarch
           butterfly!
@@ -104,7 +194,7 @@
           <span class="img-comment-text">Acrylic, 2026</span>
         </div>
 
-        <h2 class="section-title">2. The Radical Pair</h2>
+        <h2 class="section-title" id="radical-pair">2. The Radical Pair</h2>
         <p>
           Cryptochromes are the proteins that are sensitive to light, and they
           sit in the butterfly's eyes and antennae. When
@@ -179,7 +269,7 @@
           electron-nucleus coupling axis and the direction of the Earth's
           magnetic field directly affects how strong that signal is.
         </div>
-        <h2 class="section-title">3. Problem Statement</h2>
+        <h2 class="section-title" id="problem">3. Problem Statement</h2>
         <p>
           In this project, I use the three-spin model of Aiello et al. (2026) as
           a <span class="highlight">toy model</span>: two electrons and one
@@ -195,7 +285,7 @@
           field? <br />And what changes when the coupling is anisotropic?
         </div>
 
-        <h2 class="section-title">4. The Hamiltonian</h2>
+        <h2 class="section-title" id="hamiltonian">4. The Hamiltonian</h2>
         <p>
           We model the three spins with three qubits: qubit 0 is electron 1
           (tryptophan), qubit 1 is electron 2 (flavin), qubit 2 is the nucleus.
@@ -278,7 +368,7 @@
           </table>
         </div>
 
-        <h2 class="section-title">5. Building the Circuit</h2>
+        <h2 class="section-title" id="circuit">5. Building the Circuit</h2>
         <p>
           Each spin becomes one qubit: \(|0\rangle\) is spin up and
           \(|1\rangle\) is spin down. The circuit then does four things:
@@ -311,14 +401,14 @@
           \(P_S\) is the chance of measuring both electrons as 0.
         </p>
 
-        <h2 class="section-title">6. Results and Analysis</h2>
+        <h2 class="section-title" id="results">6. Results and Analysis</h2>
         <p>
           <!-- Press Run on Qollab and <code>main()</code> walks through six steps.
           Steps 1 to 5 are exact statevector calculations, used as the
           reference. Step 6 sends one job to a quantum backend (Section 7). -->
         </p>
 
-        <h3 class="section-sub-title">
+        <h3 class="section-sub-title" id="paper-model">
           6.1 Reproducing the paper: isotropic coupling
         </h3>
         <p>
@@ -352,7 +442,7 @@
           three decimals.
         </div>
 
-        <h3 class="section-sub-title">
+        <h3 class="section-sub-title" id="tilting">
           6.2 Tilting the field: nothing changes
         </h3>
         <p>
@@ -378,7 +468,9 @@
           </figcaption>
         </figure>
 
-        <h3 class="section-sub-title">6.3 Anisotropic Coupling</h3>
+        <h3 class="section-sub-title" id="anisotropic">
+          6.3 Anisotropic Coupling
+        </h3>
         <p>
           In real flavins, the electron couples to the nucleus much more
           strongly along one axis, perpendicular to the flavin ring. Keeping an
@@ -410,7 +502,9 @@
           </figcaption>
         </figure>
 
-        <h3 class="section-sub-title">6.4 The signal at each angle</h3>
+        <h3 class="section-sub-title" id="signal">
+          6.4 The signal at each angle
+        </h3>
         <p>
           A real pair doesn't live forever: each one ends after a short random
           time, at rate \(k\). The triplet yield (eq 5) averages over all those
@@ -443,7 +537,7 @@
           is where the compass would be most sensitive.
         </p>
 
-        <h3 class="section-sub-title">6.5 Real values</h3>
+        <h3 class="section-sub-title" id="real-values">6.5 Real values</h3>
         <p>
           The results above use toy values. Using the real coupling of the
           flavin's nitrogen (\(A_\parallel = 49.2\) MHz, \(A_\perp = -2.6\) MHz;
@@ -470,7 +564,9 @@
         </div>
 
         <!-- ===== Section 7: What Might She Sense? ===== -->
-        <h2 class="section-title">7. What Might She Sense?</h2>
+        <h2 class="section-title" id="what-she-senses">
+          7. What Might She Sense?
+        </h2>
         <p>
           The triplet yield tells us how strong the signal is for a given angle
           between the coupling axis and the Earth's magnetic field. But what
@@ -630,7 +726,7 @@
         </p>
         <!-- ===== end Section 7 ===== -->
 
-        <h2 class="section-title">8. Running on IonQ</h2>
+        <h2 class="section-title" id="ionq">8. Running on IonQ</h2>
         <p>
           Qollab allows one job per run, so six experiments are packed side by
           side into one 24-qubit circuit. Each experiment gets a helper qubit
@@ -663,7 +759,9 @@
           circuits, which is an open challenge for today's hardware.
         </p>
 
-        <h2 class="section-title">9. Sources of Errors and Assumptions</h2>
+        <h2 class="section-title" id="errors">
+          9. Sources of Errors and Assumptions
+        </h2>
         <p>
           This is a toy model, so it is important to be clear about what it can
           and cannot tell us.
@@ -693,7 +791,7 @@
           quantum hardware becomes useful.
         </p>
 
-        <h2 class="section-title">10. Next Steps</h2>
+        <h2 class="section-title" id="next-steps">10. Next Steps</h2>
         <ul>
           <li>
             Inclination: the real field dips about 70° into the ground, and its
@@ -712,7 +810,7 @@
           <li>Error mitigation on Forte, and a run on real IonQ hardware</li>
         </ul>
 
-        <h2 class="section-title">11. Summary and Conclusions</h2>
+        <h2 class="section-title" id="summary">11. Summary and Conclusions</h2>
         <div class="conclusions">
           <ul>
             <li>
@@ -741,7 +839,7 @@
           habitat through art in Tecumseh, Ontario.
         </div>
 
-        <h2 class="section-title">References</h2>
+        <h2 class="section-title" id="references">References</h2>
         <ul>
           <li>
             Aiello et al. (2026),
@@ -793,6 +891,18 @@
         <a href="https://findingluisa.com">findingluisa.com</a>
       </div>
     </div>
+
+    <a href="#top" class="to-top" id="to-top" aria-label="Back to top">↑</a>
+    <script>
+      // show the button after scrolling down a little
+      (function () {
+        const btn = document.getElementById("to-top");
+        const toggle = () =>
+          btn.classList.toggle("is-visible", window.scrollY > 600);
+        window.addEventListener("scroll", toggle, { passive: true });
+        toggle();
+      })();
+    </script>
 
     <script src="compass-view.js"></script>
   </body>
