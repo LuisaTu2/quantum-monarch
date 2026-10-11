@@ -654,7 +654,7 @@
         </p>
         <!-- ===== end Section 7 ===== -->
 
-        <h2 class="section-title">7. Running on IonQ</h2>
+        <h2 class="section-title">8. Running on IonQ</h2>
         <p>
           Qollab allows one job per run, so six experiments are packed side by
           side into one 24-qubit circuit. Each experiment gets a helper qubit
@@ -662,35 +662,32 @@
           50/50 up or down. All measurements come after a barrier at the end,
           1000 shots, measuring only the electrons.
         </p>
-
-        <!-- <div class="legend">
-          <span><i class="sw fg"></i>exact</span>
-          <span
-            ><i class="dot" style="background: var(--color-heading)"></i
-            >built-in simulator (ideal)</span
-          >
-          <span
-            ><i class="dot" style="border: 2px solid var(--color-orange)"></i
-            >IonQ Forte 1 noise model</span
-          >
-        </div> -->
+        <figure class="figure">
+          <img
+            src="assets/backend.svg"
+            alt="P(singlet) measured on the built-in simulator and the IonQ Forte 1 noise model"
+          />
+          <figcaption>
+            <b>Figure 5.</b> The same circuits on the built-in simulator and the
+            IonQ Forte 1 noise model, 1000 shots. Left: the paper's model at t =
+            2 and t = 6. Right: P(singlet) at t = 4π for 0°, 30°, 60° and 90°.
+            Lines are exact, dots are measured.
+          </figcaption>
+        </figure>
         <p>
           On the ideal simulator every point lands on the exact line, so the
           circuits are correct. On Forte's noise model, gate errors pull the
           values down, more for longer circuits. The compass trend survives:
           P(singlet) still falls steadily as the angle grows.
         </p>
+        <p>
+          The hardware run uses the toy field (\(\omega/a = 0.1\)) so the effect
+          appears within short, shallow circuits. With real flavin values and
+          Earth's field, the same effect needs much longer times and much deeper
+          circuits, which is an open challenge for today's hardware.
+        </p>
 
-        <figure class="figure">
-          <img src="assets/backend.svg" alt="Triplet yield versus angle" />
-          <figcaption>
-            <b>Figure 4.</b> Triplet yield (the signal) against the angle
-            between the butterfly's body and the Earth's field line.
-          </figcaption>
-        </figure>
-        CHAAAANGE
-
-        <h2 class="section-title">8. Sources of Errors and Assumptions</h2>
+        <h2 class="section-title">9. Sources of Errors and Assumptions</h2>
         <p>
           This is a toy model, so it is important to be clear about what it can
           and cannot tell us.
@@ -720,7 +717,7 @@
           quantum hardware becomes useful.
         </p>
 
-        <h2 class="section-title">9. Next Steps</h2>
+        <h2 class="section-title">10. Next Steps</h2>
         <ul>
           <li>
             Earth-strength field (ω/a ≈ 0.03) and real flavin coupling values
@@ -740,7 +737,7 @@
           <li>Error mitigation on Forte, and a run on real IonQ hardware</li>
         </ul>
 
-        <h2 class="section-title">10. Summary and Conclusions</h2>
+        <h2 class="section-title">11. Summary and Conclusions</h2>
         <div class="conclusions">
           <ul>
             <li>
