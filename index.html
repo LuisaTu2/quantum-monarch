@@ -152,16 +152,16 @@
         <h2 class="section-title" id="abstract">Abstract</h2>
         <p>
           <!-- Monarch butterflies may sense Earth's magnetic field through a quantum
-          effect in the protein cryptochrome: a pair of entangled electrons, the
-          <i>radical pair</i>. We build the three-spin model of Aiello et al.
-          (2026) on a quantum circuit, reproduce the paper's exact result, and
-          then ask what turns it into a <span class="highlight">compass</span>.
-          With the paper's isotropic hyperfine coupling, the direction of the
-          field changes nothing. With an axial coupling, as in real flavins, the
-          triplet yield rises from <span class="highlight">0.50</span> at 0° to
-          <span class="highlight">0.69</span> at 90°. The circuits run on
-          Qollab's built-in simulator and on the IonQ Forte 1 noise model, where
-          noise lowers the values but the compass trend survives. -->
+            effect in the protein cryptochrome: a pair of entangled electrons, the
+            <i>radical pair</i>. We build the three-spin model of Aiello et al.
+            (2026) on a quantum circuit, reproduce the paper's exact result, and
+            then ask what turns it into a <span class="highlight">compass</span>.
+            With the paper's isotropic hyperfine coupling, the direction of the
+            field changes nothing. With an axial coupling, as in real flavins, the
+            triplet yield rises from <span class="highlight">0.50</span> at 0° to
+            <span class="highlight">0.69</span> at 90°. The circuits run on
+            Qollab's built-in simulator and on the IonQ Forte 1 noise model, where
+            noise lowers the values but the compass trend survives. -->
         </p>
         <h2 class="section-title" id="introduction">1. Introduction</h2>
         <p>
@@ -270,7 +270,15 @@
             src="assets/anisotropic.png"
             alt="Singlet probability at four field angles, anisotropic coupling"
           />
-          <figcaption><b>Figure 3.</b> CHAAANGE</figcaption>
+          <figcaption>
+            <b>The oscillation.</b> Each curve is the chance that the pair is
+            still a singlet as time passes. It starts at 1 (singlet), drops as
+            the pair turns into a triplet, and then comes back, again and again.
+            The colours are different angles between the Earth's field and the
+            flavin's axis. When the field lies along the axis (0°), the pair
+            comes back fully to the singlet. The more the field crosses the
+            axis, the less comes back.
+          </figcaption>
         </figure>
 
         <p>
@@ -291,29 +299,41 @@
           </li>
         </ul>
 
-        <!-- blue light -> radical pair -> magnetic pull from Earth and nucleus
-        causes oscillations in quantum spin states, singlet and triplets -->
         <figure class="figure">
           <img
             src="assets/triplet-yield.png"
             alt="Triplet yield versus angle"
           />
           <figcaption>
-            <b>Figure 4.</b> Triplet yield (the signal) against the angle
-            between the butterfly's body and the Earth's field line.
+            <b>The signal.</b> The radical pairs that end up as triplets
+            represent the signal that the butterfly perceives, shown here for
+            each angle between the Earth's field and the flavin's axis. At 0°,
+            about half the pairs end as a triplet. At 90°, about 70% do. So the
+            more the field crosses the flavin's axis, the stronger the signal.
           </figcaption>
         </figure>
 
-        <!-- <div class="quote">
-          We have seen how blue light that hits a cryptochrome creates a radical
-          pair of electrons. The influence of both the Earth's magnetic field
-          and the nucleus is what makes the pair oscillate between singlet and
-          triplet. If the pair ends up in a triplet, it is thought that a signal
-          is sent to the butterfly. We will later see that the angle between the
-          electron-nucleus coupling axis and the direction of the Earth's
-          magnetic field directly affects how strong that signal is. Try it
-          below!
-        </div> -->
+        Here is a visual to summarize how a radical pair is created, how it
+        evolves over time and how it influences signals in monarchs.
+
+        <figure class="figure">
+          <img
+            src="assets/radical-pair-flow.svg"
+            alt="Flow diagram: blue light makes a radical pair; Earth's field and the nucleus make it oscillate between singlet and triplet; it ends as a singlet (nothing happens) or a triplet (a signal)"
+            style="max-width: 480px; margin: 0 auto"
+          />
+          <figcaption>
+            <b>The radical pair, step by step.</b> Blue light hits the flavin
+            inside the cryptochrome and a radical pair is created from the
+            unpaired electrons. The Earth's field pulls on both spins, and the
+            nucleus also pulls on the flavin electron, so the two spins turn at
+            different speeds and the pair oscillates between singlet and
+            triplet. After about a microsecond it ends as one or the other. If
+            it is a singlet, it is restored to the initial state and nothing
+            happens. If it is a triplet, a chemical product forms, and that
+            product is thought to send a signal to the butterfly.
+          </figcaption>
+        </figure>
 
         <!-- ===== Section 3 What Might She Sense? ===== -->
         <h2 class="section-title" id="what-she-senses">
@@ -322,25 +342,26 @@
         <p>
           We previously learned that the radical pair created by the blue light,
           continuously oscillates between singlet and triplet spin states, up
-          until it interacts with the environment and the entanglment ends.
+          until it interacts with the environment and the entanglement ends.
         </p>
         <p>
           If the state ends up in a singlet it's back to where it started, and
           no real change occurred. However, if the radical pair ends up in a
           triplet, a chemical product is produced. This chemical product is
-          exaclty what induces a signal in the butterfly.
+          exactly what induces a signal in the butterfly.
           <strong
             >We should be careful not to mistake this signal as a direction in
             where to go, as there is currently no evidence of how the butterfly
             actually perceives the signal</strong
           >.
         </p>
+
         <p>
           We will see later that the probability of ending in a singlet or
-          triplet is actually affected by how uniformly the flavid electron
+          triplet is actually affected by how uniformly the flavin electron
           feels the pull from its nucleus. You can imagine a tug-of-war between
           the earth's magnetic field and the coupling field, dampening the
-          osciallation between quantum states.
+          oscillation between quantum states.
         </p>
 
         <p>
@@ -361,8 +382,8 @@
               aria-hidden="true"
             >
               <!-- your painting, next to a mirrored copy of itself, so the 360° view wraps without a seam.
-                   To use a bigger photo: replace assets/night-garden.png and keep its proportions
-                   in data-ratio (width / height). -->
+                    To use a bigger photo: replace assets/night-garden.png and keep its proportions
+                    in data-ratio (width / height). -->
               <g id="cv-world">
                 <g
                   id="cv-pano"
@@ -638,8 +659,8 @@
         <h2 class="section-title" id="results">6. Results and Analysis</h2>
         <p>
           <!-- Press Run on Qollab and <code>main()</code> walks through six steps.
-          Steps 1 to 5 are exact statevector calculations, used as the
-          reference. Step 6 sends one job to a quantum backend (Section 7). -->
+            Steps 1 to 5 are exact statevector calculations, used as the
+            reference. Step 6 sends one job to a quantum backend (Section 7). -->
         </p>
 
         <h3 class="section-sub-title" id="paper-model">
