@@ -196,26 +196,20 @@
           the butterfly orients herself, effectively creating a quantum compass.
         </p>
 
-        <p class="teaser">
-          Want to see it first? Check out the
-          <a href="#what-she-senses" class="teaser-btn">
-            interactive demo ↓ 🦋</a
-          >
-        </p>
         <img
           class="schematics portrait"
-          src="images/monarch-on-lavender.jpg"
-          alt="Acrylic painting of a monarch butterfly above lavender"
+          src="assets/butterfly_coneflower.jpg"
+          alt="Acrylic painting of a monarch butterfly on coneflower"
         />
         <div class="img-comment-section">
-          <span class="img-comment-title">Monarch on Lavender</span>
+          <span class="img-comment-title">Monarch on Coneflower</span>
           <span class="img-comment-text">Acrylic, 2026</span>
         </div>
 
         <h2 class="section-title" id="radical-pair">2. The Radical Pair</h2>
         <p>
-          Cryptochromes are the proteins that are sensitive to light, and they
-          sit in the butterfly's eyes and antennae. When
+          Cryptochromes are proteins that are sensitive to light, and they sit
+          in the butterfly's eyes and antennae. When
           <span class="highlight">blue light</span> hits the
           <span class="highlight">flavin</span> molecule inside the
           cryptochrome, an electron gets excited and jumps up a level. This
@@ -231,7 +225,28 @@
         </p>
         <p>
           These two unpaired electrons are what form the
-          <span class="highlight">radical pair</span>! They are
+          <span class="highlight">radical pair</span>!
+        </p>
+        <img
+          class="schematics"
+          src="assets/radical_pair_formation.png"
+          alt="Watercolour diagram: blue light enters the flavin inside cryptochrome; an electron hops along three tryptophans, leaving an entangled radical pair"
+        />
+        <div class="img-comment-section">
+          <span class="img-comment-title"
+            >Blue light makes an entangled radical pair in cryptochrome</span
+          >
+          <span class="img-comment-text"
+            >When blue light hits the flavin, an electron gets excited and jumps
+            up a level and remaines unpaired. Neighbouring electrons from
+            tryptophan fill in the gap, creating a cascade of electrons moving
+            down the chain. The farthest electron remains unpaired and forms the
+            radical pair with the original electron in the flavin.
+            <!-- Watercolour & acrylic -->
+          </span>
+        </div>
+        <p>
+          These two unpaired electrons are
           <span class="highlight">entangled</span>, and they start off in a
           <span class="highlight">singlet</span> state, meaning that their spins
           point in opposite directions, but neither one has a definite direction
@@ -241,14 +256,22 @@
           and their total spin is zero.
         </p>
         <p>
-          And this is where the fun things happen. Both electrons feel the
+          And this is where the fun things happen. The pair feels the
           <span class="highlight">Earth's magnetic field</span>, and the flavin
           electron also feels the magnetic pull of its
           <span class="highlight">nucleus</span>. This unbalanced influence
           makes the two spins turn at different speeds, making the pair
-          <span class="highlight">oscillate</span> between the singlet and a
+          <span class="highlight">oscillate</span> between the
+          <span class="highlight">singlet</span> and a
           <span class="highlight">triplet</span> state.
         </p>
+        <figure class="figure">
+          <img
+            src="assets/anisotropic.png"
+            alt="Singlet probability at four field angles, anisotropic coupling"
+          />
+          <figcaption><b>Figure 3.</b> CHAAANGE</figcaption>
+        </figure>
 
         <p>
           The radical pair of electrons is unstable and only lives for about a
@@ -268,18 +291,20 @@
           </li>
         </ul>
 
-        <img
-          class="schematics"
-          src="assets/radical_pair_formation.png"
-          alt="Watercolour diagram: blue light enters the flavin inside cryptochrome; an electron hops along three tryptophans, leaving an entangled radical pair"
-        />
-        <div class="img-comment-section">
-          <span class="img-comment-title"
-            >Blue light makes an entangled radical pair</span
-          >
-          <span class="img-comment-text">Watercolour & acrylic</span>
-        </div>
-        <div class="quote">
+        <!-- blue light -> radical pair -> magnetic pull from Earth and nucleus
+        causes oscillations in quantum spin states, singlet and triplets -->
+        <figure class="figure">
+          <img
+            src="assets/triplet-yield.png"
+            alt="Triplet yield versus angle"
+          />
+          <figcaption>
+            <b>Figure 4.</b> Triplet yield (the signal) against the angle
+            between the butterfly's body and the Earth's field line.
+          </figcaption>
+        </figure>
+
+        <!-- <div class="quote">
           We have seen how blue light that hits a cryptochrome creates a radical
           pair of electrons. The influence of both the Earth's magnetic field
           and the nucleus is what makes the pair oscillate between singlet and
@@ -288,22 +313,42 @@
           electron-nucleus coupling axis and the direction of the Earth's
           magnetic field directly affects how strong that signal is. Try it
           below!
-        </div>
+        </div> -->
 
         <!-- ===== Section 3 What Might She Sense? ===== -->
         <h2 class="section-title" id="what-she-senses">
-          3. What Might She Sense?
+          3. What Might The Butterfly Sense?
         </h2>
         <p>
-          Want to skip the maths? Here is a preview of where this project ends
-          up. Turn the butterfly around and watch how the strength of the signal
-          changes with the angle between her body and the Earth's magnetic
-          field. The tint follows the simulated triplet yield, the share of
-          radical pairs that end as a triplet and can signal, with real flavin
-          values, the Earth's field and a 1&nbsp;µs lifetime (<a
-            href="#real-values"
-            >Section 6.5</a
-          >). The rest of the page explains how we get there.
+          We previously learned that the radical pair created by the blue light,
+          continuously oscillates between singlet and triplet spin states, up
+          until it interacts with the environment and the entanglment ends.
+        </p>
+        <p>
+          If the state ends up in a singlet it's back to where it started, and
+          no real change occurred. However, if the radical pair ends up in a
+          triplet, a chemical product is produced. This chemical product is
+          exaclty what induces a signal in the butterfly.
+          <strong
+            >We should be careful not to mistake this signal as a direction in
+            where to go, as there is currently no evidence of how the butterfly
+            actually perceives the signal</strong
+          >.
+        </p>
+        <p>
+          We will see later that the probability of ending in a singlet or
+          triplet is actually affected by how uniformly the flavid electron
+          feels the pull from its nucleus. You can imagine a tug-of-war between
+          the earth's magnetic field and the coupling field, dampening the
+          osciallation between quantum states.
+        </p>
+
+        <p>
+          The simulation below assumes that the coupling field is aligned with
+          the direction of the butterfly, and it shows an
+          <strong>artist's impression</strong> of how strongly the butterfly
+          <strong>might</strong> perceive the signal as she rotates around her
+          axis.
         </p>
 
         <section class="cv" id="compass-view">
@@ -321,7 +366,7 @@
               <g id="cv-world">
                 <g
                   id="cv-pano"
-                  data-src="assets/night-garden.png"
+                  data-src="assets/meadow.png"
                   data-ratio="1.852"
                 ></g>
               </g>
@@ -432,14 +477,13 @@
           <div class="cv-warning" role="note">
             <span class="cv-warning-icon" aria-hidden="true">!</span>
             <p>
-              <b>ATTENTION</b><br />
-              The flavin's coupling axis (dashed line) is assumed to point along
-              the butterfly's body, but how cryptochromes are oriented in
-              monarch tissue is unknown. The field is drawn flat, without its
-              real dip into the ground. The tint is an artistic interpretation
-              of signal strength, not a direction to fly towards. Monarchs
-              likely sense the signal through their antennae, and how it is
-              perceived is unknown.
+              <b>ATTENTION!</b><br />
+              The tint is an artistic interpretation of signal strength,
+              <strong>not a direction to fly towards</strong>. Monarchs likely
+              sense the signal through their antennae, but how it is perceived
+              is unknown. We also assume that the flavin's coupling axis (dashed
+              line) points along the butterfly's body, however it is unknown how
+              they are oriented in monarch tissue.
             </p>
           </div>
         </section>
