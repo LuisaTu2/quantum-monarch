@@ -130,23 +130,23 @@
           <li>
             <a href="#ionq"><span class="toc-num">7</span>Running on IonQ</a>
           </li>
-          <li>
+          <!-- <li>
             <a href="#errors"
               ><span class="toc-num">8</span>Sources of Errors and
               Assumptions</a
             >
-          </li>
+          </li> -->
           <li>
-            <a href="#next-steps"><span class="toc-num">9</span>Next Steps</a>
+            <a href="#next-steps"><span class="toc-num">8</span>Next Steps</a>
           </li>
           <li>
             <a href="#summary"
-              ><span class="toc-num">10</span>Summary and Conclusions</a
+              ><span class="toc-num">9</span>Summary and Conclusions</a
             >
           </li>
           <li>
             <a href="#conservation"
-              ><span class="toc-num">11</span>Why She Needs Our Help</a
+              ><span class="toc-num">10</span>Why She Needs Our Help</a
             >
           </li>
           <li><a href="#references">References</a></li>
@@ -293,7 +293,7 @@
           The radical pair of electrons is
           <span class="highlight">unstable</span> and only lives for about a
           microsecond. Since its state is constantly oscillating between a
-          singlet and a triplet state, the final state is probabilistic.
+          singlet and a triplet state, the final state is <i>probabilistic</i>.
         </p>
         <ul>
           <li>
@@ -535,8 +535,8 @@
 
         <h2 class="section-title" id="problem">4. Problem Statement</h2>
         <p>
-          In this project, I use the three-spin model of Aiello et al. (2026) as
-          a <span class="highlight">toy model</span>: two electrons and one
+          In this project, we use the three-spin model of Aiello et al. (2026)
+          as a <span class="highlight">toy model</span>: two electrons and one
           nucleus. In the paper, the nucleus pulls on the flavin electron via
           <span class="highlight">isotropic</span> coupling (same in all
           directions). In real flavins, the nucleus pulls much more strongly
@@ -544,9 +544,25 @@
           <span class="highlight">anisotropic</span>
           coupling).
         </p>
+
+        <p>
+          We assume there is only one nucleus, no decoherence, no interaction
+          between the electrons.
+          <!-- The flavin's coupling axis is assumed to point along the -->
+          <!-- butterfly's body. -->
+
+          It is also unknown how cryptochromes are oriented in the monarch's
+          eyes and antennae, and whether monarchs use this mechanism at all.
+          <!-- Realistic models predict a smaller direction effect, from a few
+          percent to about 25%. -->
+        </p>
         <div class="quote">
-          Does the toy model respond to the direction of the Earth's magnetic
-          field? <br />And what changes when the coupling is anisotropic?
+          We first aim to reproduce the results from the paper, and understand
+          the influence of the Earth's magnetic field on the radical pair
+          evolution.
+          <br />
+          We also expand the model to include anisotropic nuclear coupling, and
+          observe its effects on the triplet yield.
         </div>
 
         <h2 class="section-title" id="math">5. The Math and Circuits</h2>
@@ -635,6 +651,15 @@
         </div>
 
         <h3 class="section-sub-title" id="circuit">5.2 Building the Circuit</h3>
+
+        <!-- <p>
+          <b>Noise:</b> on IonQ Forte 1, gate errors lower the values, more for
+          longer circuits, and 1000 shots add an error of about ±0.015. Three
+          qubits are easy to simulate classically, so no quantum speed-up is
+          claimed. Each extra nucleus doubles the problem size, which is where
+          quantum hardware becomes useful.
+        </p> -->
+
         <p>
           Each spin becomes one qubit: \(|0\rangle\) is spin up and
           \(|1\rangle\) is spin down. The circuit then does four things:
@@ -698,7 +723,7 @@
         <p>
           The nucleus sets the rhythm of the beats. The Earth's field, acting
           together with the nucleus, makes each return a little lower than the
-          one before. To check the simulation, I compared it with the paper's
+          one before. To check the simulation, we compared it with the paper's
           exact formula (eq 18):
         </p>
         <div class="note">
@@ -712,7 +737,7 @@
           6.2 Tilting the field: nothing changes
         </h3>
         <p>
-          Next, I tilt the Earth's field by an angle \(\theta\) (0°, 30°, 60°
+          Next, we tilt the Earth's field by an angle \(\theta\) (0°, 30°, 60°
           and 90°), keeping the paper's isotropic coupling. The four curves lie
           exactly on top of each other.
         </p>
@@ -778,9 +803,9 @@
           that can signal.
         </p>
         <p>
-          I assume the flavin's coupling axis points along the butterfly's body,
-          so \(\theta\) is the angle between her body and the Earth's field
-          line.
+          We assume the flavin's coupling axis points along the butterfly's
+          body, so \(\theta\) is the angle between her body and the Earth's
+          field line.
         </p>
         <figure class="figure">
           <img
@@ -862,58 +887,39 @@
           circuits, which is an open challenge for today's hardware.
         </p>
 
-        <h2 class="section-title" id="errors">
-          8. Sources of Errors and Assumptions
-        </h2>
-        <p>
-          This is a toy model, so it is important to be clear about what it can
-          and cannot tell us.
-        </p>
-        <p>
-          <b>Known:</b> the simulation matches the paper's exact formula to
-          three decimals, and real flavin couplings are known to be strongly
-          anisotropic.
-        </p>
-        <p>
-          <b>Assumed:</b> one nucleus, no decoherence, no interaction between
-          the electrons, and toy values for the field strength and pair
-          lifetime. The flavin's coupling axis is assumed to point along the
-          butterfly's body.
-        </p>
-        <p>
-          <b>Unknown:</b> how cryptochromes are oriented in the monarch's eyes
-          and antennae, and whether monarchs use this mechanism at all.
-          Realistic models predict a smaller direction effect, from a few
-          percent to about 25%.
-        </p>
-        <p>
-          <b>Noise:</b> on IonQ Forte 1, gate errors lower the values, more for
-          longer circuits, and 1000 shots add an error of about ±0.015. Three
-          qubits are easy to simulate classically, so no quantum speed-up is
-          claimed. Each extra nucleus doubles the problem size, which is where
-          quantum hardware becomes useful.
-        </p>
-
         <h2 class="section-title" id="next-steps">9. Next Steps</h2>
+        <p>There's a lot more we'd love to try:</p>
         <ul>
           <li>
-            Inclination: the real field dips about 70° into the ground, and its
-            strength and dip change along the route from Tecumseh to central
-            Mexico
+            <b>Tilt the field into the ground.</b> The real field doesn't lie
+            flat. It dips about 70° into the ground, and both its strength and
+            its dip change as she flies from Tecumseh down to Mexico. Adding
+            that would make the model much closer to what she actually feels.
           </li>
           <li>
-            Decoherence and recombination, with different singlet and triplet
-            rates
+            <b>Let the pair fall apart more realistically.</b> In real life the
+            pair is constantly bumped by its surroundings, which slowly blurs
+            the quantum beats, and singlets and triplets can end at different
+            rates. Right now my model ignores both.
           </li>
           <li>
-            Electron–electron coupling, which can reshape the direction effect
+            <b>Let the two electrons talk to each other.</b> The two electrons
+            also feel each other a little, which could change how strongly the
+            signal depends on direction.
           </li>
-          <li>Averaging over many cryptochrome orientations</li>
-
-          <li>Error mitigation on Forte, and a run on real IonQ hardware</li>
+          <li>
+            <b>Use many cryptochromes, not one.</b> A real butterfly has lots of
+            them, probably pointing in different directions. Averaging over all
+            of them would give a more honest picture of the total signal.
+          </li>
+          <li>
+            <b>Clean up the hardware results.</b> Try error mitigation on IonQ
+            Forte to correct for some of the noise, and then run it on real IonQ
+            hardware.
+          </li>
         </ul>
 
-        <h2 class="section-title" id="summary">10. Summary and Conclusions</h2>
+        <h2 class="section-title" id="summary">9. Summary and Conclusions</h2>
         <div class="conclusions">
           <ul>
             <li>
@@ -933,12 +939,13 @@
         </div>
 
         <h2 class="section-title" id="conservation">
-          11. Why She Needs Our Help
+          10. Why She Needs Our Help
         </h2>
         <p>
           Monarch butterflies are in trouble. The eastern migratory population
-          has dropped by about 80% since the 1990s, and monarchs are now listed
-          as <span class="highlight">endangered</span> in Canada.
+          has dropped by about <span class="highlight">80%</span> since the
+          1990s, and monarchs are now listed as
+          <span class="highlight">endangered</span> in Canada.
         </p>
         <p>
           The main reason is <span class="highlight">loss of habitat</span>.
